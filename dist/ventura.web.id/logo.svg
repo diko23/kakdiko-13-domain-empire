@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Ventura & Cap Table Lab Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#a855f7" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <path d="M32,8 L46,28 L38,28 L38,50 L26,50 L26,28 L18,28 Z" fill="none" stroke="#c084fc" stroke-width="3.5" stroke-linejoin="round"/>
+            <circle cx="32" cy="22" r="3.5" fill="#a855f7"/>
+            <line x1="22" y1="56" x2="42" y2="56" stroke="#a855f7" stroke-width="3.5" stroke-linecap="round"/>
+        
+</svg>

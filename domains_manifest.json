@@ -1,0 +1,910 @@
+{
+  "monorepo_version": "1.0.0",
+  "owner": {
+    "name": "Kak Diko",
+    "primary_domain": "kakdiko.web.id",
+    "whatsapp": "6282323965780",
+    "email": "dickynoko23@gmail.com",
+    "github": "https://github.com/diko23"
+  },
+  "domains": [
+    {
+      "domain": "kakdiko.web.id",
+      "brand_name": "KakDiko Digital Venture",
+      "tagline": "Full-Stack AI Engineer, Digital Asset Architect & Venture Builder",
+      "description": "Portofolio resmi dan pusat komando ekosistem 13 properti digital milik Kak Diko—mencakup instrumen pasar modal, micro-SaaS developer, direktori AI, hingga studio desain vektor.",
+      "category": "Personal Hub",
+      "tier": "Core Portfolio",
+      "for_sale": false,
+      "acquisition": {
+        "status": "Core Personal Hub (Terbuka untuk Proyek & Akuisisi Aset)",
+        "price_idr": 0,
+        "price_label": "Hub Kemitraan & Konsultasi",
+        "bundle_domains": ["kakdiko.web.id"],
+        "scarcity_note": "Pusat jaringan 13 domain aktif dengan arsitektur AI-Driven Static Monorepo."
+      },
+      "theme": {
+        "primary": "#38bdf8",
+        "secondary": "#818cf8",
+        "accent": "#22d3ee",
+        "bg_dark": "#090d16",
+        "icon_type": "hub"
+      },
+      "tool": {
+        "id": "empire_roi_sim",
+        "title": "Simulator Valuasi & ROI Portofolio Domain Digital",
+        "subtitle": "Hitung proyeksi nilai aset portofolio domain dan micro-SaaS berdasarkan trafik organik bulanan serta kelipatan akuisisi (multiple).",
+        "formula_id": "empire_roi",
+        "inputs": [
+          {"id": "domain_count", "label": "Jumlah Domain Aktif", "type": "number", "default": 13, "min": 1, "max": 500, "step": 1},
+          {"id": "acq_cost", "label": "Total Modal Akuisisi Awal (Rp)", "type": "number", "default": 2600, "min": 200, "max": 100000000, "step": 1000},
+          {"id": "avg_visitors", "label": "Rata-rata Pengunjung Organik / Domain / Bulan", "type": "number", "default": 1500, "min": 0, "max": 1000000, "step": 100},
+          {"id": "avg_sale_price", "label": "Target Harga Jual Rata-rata per Domain (Rp)", "type": "number", "default": 2500000, "min": 50000, "max": 100000000, "step": 50000},
+          {"id": "sell_through_rate", "label": "Rasio Domain Terjual / Tahun (%)", "type": "number", "default": 30, "min": 5, "max": 100, "step": 5}
+        ]
+      },
+      "features": [
+        {
+          "title": "Arsitektur Zero-Cost Edge",
+          "desc": "Mengelola 13 domain produktif dalam satu repositori terpadu di atas jaringan edge global tanpa biaya sewa VPS bulanan."
+        },
+        {
+          "title": "13 Interactive Micro-Tools",
+          "desc": "Setiap domain dilengkapi kalkulator finansial, utilitas developer, atau generator desain fungsional untuk menarik trafik organik."
+        },
+        {
+          "title": "Otomasi Konten Multi-LLM",
+          "desc": "Pipeline Python otomatis yang memperbarui riset pasar, glosarium teknis, dan optimasi SEO terstruktur."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "arsitektur-ai-driven-static-monorepo-13-domain",
+          "title": "Membangun AI-Driven Static Monorepo untuk Mengelola 13 Domain Sekaligus",
+          "summary": "Panduan teknis merancang sistem multi-tenant berbasis Cloudflare Workers dan generator statis Python yang mampu melayani belasan domain dengan biaya infrastruktur Rp 0/bulan.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "strategi-build-and-flip-aset-domain-indonesia",
+          "title": "Strategi Build-and-Flip: Mengubah Domain 1-Kata Menjadi Micro-SaaS Bernilai Tinggi",
+          "summary": "Mengapa memasang kalkulator interaktif dan artikel pilar SEO meningkatkan likuiditas serta valuasi jual domain hingga 10 kali lipat dibanding halaman parkir kosong.",
+          "read_time": "5 menit"
+        },
+        {
+          "slug": "integrasi-vektor-svg-dan-automasi-llm",
+          "title": "Otomasi Identitas Visual & Konten Terstruktur Menggunakan Pipeline AI Modern",
+          "summary": "Studi kasus penggabungan model penalaran teks dan generator vektor otomatis untuk meluncurkan portofolio produk digital secara instan.",
+          "read_time": "4 menit"
+        }
+      ]
+    },
+    {
+      "domain": "ekuitas.biz.id",
+      "brand_name": "Ekuitas Korporat & Valuasi",
+      "tagline": "Platform Analisis Ekuitas, Struktur Modal & Valuasi Fundamental Perusahaan",
+      "description": "Instrumen analisis rasio ekuitas korporat Indonesia: hitung Return on Equity (ROE), Debt-to-Equity Ratio (DER), Book Value per Share (BVPS), dan nilai wajar saham metode Benjamin Graham.",
+      "category": "Financial Category-Killer",
+      "tier": "Tier-1 Single-Word Asset",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi (Paket 3-Domain Full Brand)",
+        "price_idr": 9500000,
+        "price_label": "Rp 9.500.000 (Termasuk .biz.id + .web.id + .my.id)",
+        "bundle_domains": ["ekuitas.biz.id", "ekuitas.web.id", "ekuitas.my.id"],
+        "scarcity_note": "Domain 1-Kata Kamus Finansial Murni (Exact Match Keyword). Pembeli otomatis mendapatkan proteksi penuh 3 ekstensi (.biz.id, .web.id, .my.id)."
+      },
+      "theme": {
+        "primary": "#10b981",
+        "secondary": "#059669",
+        "accent": "#34d399",
+        "bg_dark": "#071510",
+        "icon_type": "equity"
+      },
+      "tool": {
+        "id": "equity_fundamental_calc",
+        "title": "Kalkulator Valuasi Ekuitas & Nilai Wajar Saham (Graham Number)",
+        "subtitle": "Analisis cepat kesehatan neraca (ROE, PBV) dan estimasi harga wajar intrinsik saham berdasarkan laba bersih per saham (EPS) dan nilai buku (BVPS).",
+        "formula_id": "equity_valuation",
+        "inputs": [
+          {"id": "stock_price", "label": "Harga Saham Saat Ini (Rp)", "type": "number", "default": 4200, "min": 50, "max": 1000000, "step": 10},
+          {"id": "eps", "label": "Earning Per Share / EPS Tahunan (Rp)", "type": "number", "default": 450, "min": 1, "max": 500000, "step": 10},
+          {"id": "bvps", "label": "Book Value Per Share / Nilai Buku Ekuitas (Rp)", "type": "number", "default": 2800, "min": 1, "max": 500000, "step": 50},
+          {"id": "total_debt_ratio", "label": "Total Liabilitas terhadap Ekuitas / DER (%)", "type": "number", "default": 65, "min": 0, "max": 1000, "step": 5}
+        ]
+      },
+      "features": [
+        {
+          "title": "Valuasi Intrinsik Instan",
+          "desc": "Menghitung Graham Fair Value dan Margin of Safety (MoS) secara otomatis untuk menyaring emiten salah harga (undervalued)."
+        },
+        {
+          "title": "Audit Kualitas ROE & PBV",
+          "desc": "Membedah efisiensi laba terhadap modal bersih pemegang saham sekaligus menguji rasio harga terhadap nilai buku."
+        },
+        {
+          "title": "Proteksi Brand 3 Ekstensi",
+          "desc": "Terhubung langsung dengan ekosistem ekuitas.web.id dan ekuitas.my.id sebagai kesatuan aset merek finansial."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "membedah-return-on-equity-roe-dan-kualitas-laba-emiten",
+          "title": "Membedah Return on Equity (ROE) & Kualitas Laba pada Emiten Bursa Efek Indonesia",
+          "summary": "Cara membedakan ROE tinggi yang sehat akibat keunggulan kompetitif (economic moat) versus ROE semu yang didongkrak oleh utang berlebih (leverage).",
+          "read_time": "7 menit"
+        },
+        {
+          "slug": "panduan-securities-crowdfunding-scf-dan-ekuitas-swasta",
+          "title": "Panduan Lengkap Pendanaan Ekuitas (Equity Crowdfunding) bagi UKM & Startup",
+          "summary": "Memahami struktur penerbitan saham baru, valuasi pre-money, dan tata kelola bagi hasil bagi bisnis yang menghimpun modal di luar bursa utama.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "rumus-benjamin-graham-number-pasar-modal-indonesia",
+          "title": "Penerapan Rumus Benjamin Graham Number untuk Mencari Saham Undervalued di BEI",
+          "summary": "Kombinasi batas maksimum PER 15x dan PBV 1,5x sebagai saringan pertahanan pertama investor nilai (value investor).",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "ekuitas.web.id",
+      "brand_name": "Pustaka Riset Ekuitas",
+      "tagline": "Portal Edukasi Pasar Modal, Riset Saham & Simulasi Pertumbuhan CAGR",
+      "description": "Pusat literasi investasi ekuitas dan simulator pertumbuhan majemuk (Compound Annual Growth Rate) untuk merancang kemandirian finansial jangka panjang.",
+      "category": "Financial Category-Killer",
+      "tier": "Tier-1 Single-Word Asset",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia dalam Paket Bundle Ekuitas (3 Domain)",
+        "price_idr": 9500000,
+        "price_label": "Rp 9.500.000 (Paket .biz.id + .web.id + .my.id)",
+        "bundle_domains": ["ekuitas.biz.id", "ekuitas.web.id", "ekuitas.my.id"],
+        "scarcity_note": "Bagian dari paket proteksi merek tunggal 'Ekuitas' (.biz.id + .web.id + .my.id)."
+      },
+      "theme": {
+        "primary": "#14b8a6",
+        "secondary": "#0d9488",
+        "accent": "#2dd4bf",
+        "bg_dark": "#061414",
+        "icon_type": "chart"
+      },
+      "tool": {
+        "id": "equity_cagr_sim",
+        "title": "Simulator Compounding Ekuitas & DCA Bulanan (CAGR)",
+        "subtitle": "Proyeksikan nilai akhir portofolio saham Anda berdasarkan modal awal, investasi rutin bulanan (Dollar Cost Averaging), dan target imbal hasil tahunan.",
+        "formula_id": "equity_cagr",
+        "inputs": [
+          {"id": "initial_capital", "label": "Modal Ekuitas Awal (Rp)", "type": "number", "default": 25000000, "min": 0, "max": 10000000000, "step": 1000000},
+          {"id": "monthly_topup", "label": "Investasi Rutin Bulanan / DCA (Rp)", "type": "number", "default": 3000000, "min": 0, "max": 500000000, "step": 500000},
+          {"id": "annual_return", "label": "Estimasi Return Ekuitas Tahunan / CAGR (%)", "type": "number", "default": 14, "min": 1, "max": 100, "step": 0.5},
+          {"id": "years", "label": "Horizon Waktu Investasi (Tahun)", "type": "number", "default": 10, "min": 1, "max": 50, "step": 1}
+        ]
+      },
+      "features": [
+        {
+          "title": "Simulasi Efek Bola Salju",
+          "desc": "Memvisualisasikan porsi modal pokok vs keuntungan bunga majemuk (compounding gain) dari tahun ke tahun."
+        },
+        {
+          "title": "Kurikulum Analisis Fundamental",
+          "desc": "Artikel terstruktur membaca laporan posisi keuangan, arus kas operasional, dan rasio solvabilitas."
+        },
+        {
+          "title": "Integrasi Ekosistem Ekuitas",
+          "desc": "Terhubung langsung dengan platform screening korporat ekuitas.biz.id dan tracker personal ekuitas.my.id."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "kekuatan-cagr-dan-dollar-cost-averaging-saham-bluechip",
+          "title": "Kekuatan CAGR & Disiplin Dollar Cost Averaging pada Saham Berfundamental Kuat",
+          "summary": "Simulasi matematis bagaimana konsistensi top-up bulanan mengalahkan upaya menebak titik terendah pasar (market timing).",
+          "read_time": "5 menit"
+        },
+        {
+          "slug": "cara-membaca-laporan-perubahan-ekuitas-tahunan",
+          "title": "Cara Membaca Laporan Perubahan Ekuitas: Modal Disetor, Agio Saham, dan Saldo Laba",
+          "summary": "Panduan praktis memahami komponen ekuitas di neraca perusahaan terbuka agar tidak terjebak rekayasa akuntansi.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "perbandingan-return-ekuitas-vs-inflasi-indonesia",
+          "title": "Historis Imbal Hasil Kelas Aset Ekuitas dibandingkan Laju Inflasi 20 Tahun Terakhir",
+          "summary": "Mengapa kepemilikan ekuitas produktif menjadi pelindung daya beli paling tangguh untuk jangka panjang.",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "ekuitas.my.id",
+      "brand_name": "EkuitasKu Portfolio Rebalancer",
+      "tagline": "Asisten Alokasi Aset & Rebalancing Portofolio Ekuitas Investor Mandiri",
+      "description": "Alat bantu praktis bagi investor ritel untuk menjaga keseimbangan porsi saham, instrumen pendapatan tetap, dan kas darurat secara disiplin.",
+      "category": "Financial Category-Killer",
+      "tier": "Tier-1 Single-Word Asset",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia dalam Paket Bundle Ekuitas (3 Domain)",
+        "price_idr": 9500000,
+        "price_label": "Rp 9.500.000 (Paket .biz.id + .web.id + .my.id)",
+        "bundle_domains": ["ekuitas.biz.id", "ekuitas.web.id", "ekuitas.my.id"],
+        "scarcity_note": "Bagian dari paket proteksi merek tunggal 'Ekuitas' (.biz.id + .web.id + .my.id)."
+      },
+      "theme": {
+        "primary": "#06b6d4",
+        "secondary": "#0891b2",
+        "accent": "#22d3ee",
+        "bg_dark": "#071318",
+        "icon_type": "pie"
+      },
+      "tool": {
+        "id": "portfolio_rebalancer",
+        "title": "Kalkulator Rebalancing Portofolio (Ekuitas vs Kas/Obligasi)",
+        "subtitle": "Hitung berapa nominal rupiah yang harus dibeli atau dijual agar bobot portofolio ekuitas Anda kembali presisi sesuai profil risiko.",
+        "formula_id": "rebalance_calc",
+        "inputs": [
+          {"id": "current_equity", "label": "Nilai Portofolio Saham/Ekuitas Saat Ini (Rp)", "type": "number", "default": 72000000, "min": 0, "max": 50000000000, "step": 1000000},
+          {"id": "current_fixed", "label": "Nilai Obligasi / Pasar Uang / Kas Saat Ini (Rp)", "type": "number", "default": 28000000, "min": 0, "max": 50000000000, "step": 1000000},
+          {"id": "target_equity_pct", "label": "Target Ideal Bobot Ekuitas (%)", "type": "number", "default": 60, "min": 0, "max": 100, "step": 5},
+          {"id": "new_cash_injection", "label": "Tambahan Dana Segar Baru (Rp)", "type": "number", "default": 10000000, "min": 0, "max": 5000000000, "step": 500000}
+        ]
+      },
+      "features": [
+        {
+          "title": "Koreksi Bobot Otomatis",
+          "desc": "Menunjukkan secara eksak berapa rupiah yang harus dialokasikan ke ekuitas vs instrumen defensif saat injeksi dana baru."
+        },
+        {
+          "title": "Manajemen Risiko Terukur",
+          "desc": "Mencegah portofolio terlalu berat di saham saat pasar euforia (overbought) dan mendorong akumulasi saat harga diskon."
+        },
+        {
+          "title": "Ringan & Privasi Penuh",
+          "desc": "Seluruh perhitungan dilakukan 100% di sisi browser perangkat Anda tanpa menyimpan data kekayaan pribadi di server."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "strategi-rebalancing-portofolio-tahunan-investor-ritel",
+          "title": "Strategi Rebalancing Portofolio Semesteran: Kunci Mengunci Profit Tanpa Emosi",
+          "summary": "Bagaimana aturan alokasi 60/40 atau 70/30 secara otomatis memaksa Anda menjual di harga pucuk dan membeli di harga bawah.",
+          "read_time": "5 menit"
+        },
+        {
+          "slug": "menentukan-porsi-ekuitas-berdasarkan-usia-dan-profil-risiko",
+          "title": "Rumus 110 Minus Usia: Menentukan Porsi Ekuitas Ideal di Setiap Fase Kehidupan",
+          "summary": "Penyesuaian bobot aset agresif terhadap kewajiban likuiditas jangka pendek dan dana darurat keluarga.",
+          "read_time": "4 menit"
+        },
+        {
+          "slug": "psikologi-investasi-menghadapi-koreksi-pasar-ekuitas",
+          "title": "Psikologi Menghadapi Drawdown Pasar: Mengubah Volatilitas Menjadi Peluang Akumulasi",
+          "summary": "Kerangka kerja berbasis data agar tidak melakukan panic selling saat indeks pasar mengalami koreksi wajar.",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "dividen.biz.id",
+      "brand_name": "Dividen IDX & Cashflow",
+      "tagline": "Kalkulator Dividend Yield, Pajak Dividen & Simulasi DRIP Pasar Modal Indonesia",
+      "description": "Platform khusus investor dividen (dividend investing) Bursa Efek Indonesia: hitung gross/net dividend yield, potongan pajak final 10%, dan efek gulung dividen (Dividend Reinvestment Plan).",
+      "category": "Financial Category-Killer",
+      "tier": "Tier-1 Single-Word Asset",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi (Single-Word Category Killer)",
+        "price_idr": 6500000,
+        "price_label": "Rp 6.500.000 (Domain 1-Kata .biz.id + Kalkulator Aktif)",
+        "bundle_domains": ["dividen.biz.id"],
+        "scarcity_note": "Ekstensi dividen.my.id sudah terdaftar pihak lain. Kata tunggal 'Dividen' adalah salah satu kata kunci saham paling dicari di Indonesia."
+      },
+      "theme": {
+        "primary": "#22c55e",
+        "secondary": "#16a34a",
+        "accent": "#4ade80",
+        "bg_dark": "#07160c",
+        "icon_type": "dividend"
+      },
+      "tool": {
+        "id": "dividend_yield_drip",
+        "title": "Kalkulator Dividend Yield Bersih & Simulasi DRIP Saham BEI",
+        "subtitle": "Hitung persentase yield kotor/bersih, total uang tunai dividen per tahun (berdasarkan jumlah lot), serta proyeksi reinvestasi dividen sesuai aturan pajak UU Cipta Kerja.",
+        "formula_id": "dividend_calc",
+        "inputs": [
+          {"id": "lots", "label": "Jumlah Kepemilikan Saham (Lot — 1 Lot = 100 Lembar)", "type": "number", "default": 500, "min": 1, "max": 1000000, "step": 10},
+          {"id": "avg_buy_price", "label": "Harga Rata-Rata Beli / Average Price per Lembar (Rp)", "type": "number", "default": 3200, "min": 50, "max": 1000000, "step": 10},
+          {"id": "dps", "label": "Dividen per Lembar Saham / DPS Tahunan (Rp)", "type": "number", "default": 280, "min": 1, "max": 100000, "step": 5},
+          {"id": "tax_rate", "label": "Tarif Pajak Dividen (0% jika Reinvestasi 3 Thn, 10% Non-Reinvest)", "type": "number", "default": 0, "min": 0, "max": 20, "step": 10}
+        ]
+      },
+      "features": [
+        {
+          "title": "Simulasi Pajak 0% vs 10%",
+          "desc": "Membandingkan penerimaan bersih dividen jika direinvestasikan sesuai PMK 18/2021 (bebas pajak) vs ditarik tunai (pajak final 10%)."
+        },
+        {
+          "title": "Kalkulasi Berbasis Lot BEI",
+          "desc": "Menggunakan standar satuan perdagangan Bursa Efek Indonesia (1 Lot = 100 lembar saham) dan estimasi periode balik modal (Payback Period)."
+        },
+        {
+          "title": "Domain 1-Kata Bernilai Tinggi",
+          "desc": "Nama domain dividen.biz.id sangat mudah diingat dan ideal untuk aplikasi kalender cum-date, fintech sekuritas, atau komunitas investor."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "cara-menghitung-dividend-yield-dan-aturan-bebas-pajak-dividen",
+          "title": "Cara Menghitung Dividend Yield & Syarat Bebas Pajak Dividen 0% bagi Investor Individu",
+          "summary": "Panduan lengkap mekanisme pelaporan realisasi investasi dividen selama 3 tahun pajak agar terbebas dari potongan PPh Final 10%.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "mengenal-strategi-dividend-aristocrats-dan-indeks-high-dividend-20",
+          "title": "Strategi Memilih Saham Pencetak Arus Kas: Bedah Indeks IDX High Dividend 20",
+          "summary": "Kriteria menilai konsistensi Dividend Payout Ratio (DPR) dan arus kas bebas (Free Cash Flow) agar tidak terjebak saham cyclical di puncak siklus.",
+          "read_time": "7 menit"
+        },
+        {
+          "slug": "waspada-dividend-trap-saat-cum-date-dan-ex-date",
+          "title": "Waspada Dividend Trap: Mengapa Membeli Saham Hanya Saat Cum-Date Sering Merugi?",
+          "summary": "Analisis perilaku penurunan harga saat pembukaan pasar di hari Ex-Date dan kapan waktu akumulasi terbaik sebelum musim RUPST.",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "obligasi.biz.id",
+      "brand_name": "Obligasi & Simulator SBN",
+      "tagline": "Kalkulator Kupon SBN, ORI, Sukuk Ritel & Obligasi Negara FR Indonesia",
+      "description": "Hitung arus kas pasif bulanan (passive income) dari Surat Berharga Negara (ORI, SR, SBR, ST) dan Obligasi Fixed Rate (FR) lengkap dengan potongan pajak final 10% yang lebih rendah dari deposito.",
+      "category": "Financial Category-Killer",
+      "tier": "Tier-1 Single-Word Asset",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi (Single-Word Category Killer)",
+        "price_idr": 6500000,
+        "price_label": "Rp 6.500.000 (Domain 1-Kata .biz.id + Simulator SBN)",
+        "bundle_domains": ["obligasi.biz.id"],
+        "scarcity_note": "Ekstensi obligasi.my.id sudah terdaftar pihak lain. Sangat strategis untuk agen penjual efek reksa dana (APERD), mitra distribusi SBN, atau fintech fixed-income."
+      },
+      "theme": {
+        "primary": "#eab308",
+        "secondary": "#ca8a04",
+        "accent": "#facc15",
+        "bg_dark": "#151206",
+        "icon_type": "bond"
+      },
+      "tool": {
+        "id": "bond_coupon_sim",
+        "title": "Simulator Kupon Bersih Bulanan SBN / Obligasi Negara vs Deposito",
+        "subtitle": "Bandingkan pendapatan kupon bersih bulanan SBN/Obligasi (PPh Final 10%) terhadap bunga deposito perbankan (PPh Final 20%).",
+        "formula_id": "bond_calc",
+        "inputs": [
+          {"id": "principal", "label": "Nominal Investasi Obligasi / SBN (Rp)", "type": "number", "default": 100000000, "min": 1000000, "max": 50000000000, "step": 1000000},
+          {"id": "coupon_rate", "label": "Kupon Tahunan Obligasi / SBN (% p.a.)", "type": "number", "default": 6.5, "min": 1, "max": 20, "step": 0.05},
+          {"id": "deposito_rate", "label": "Bunga Deposito Pembanding (% p.a. — Pajak 20%)", "type": "number", "default": 4.25, "min": 0.5, "max": 15, "step": 0.25},
+          {"id": "tenor_years", "label": "Tenor Kepemilikan (Tahun)", "type": "number", "default": 3, "min": 1, "max": 30, "step": 1}
+        ]
+      },
+      "features": [
+        {
+          "title": "Simulasi Kupon Bulanan",
+          "desc": "Menampilkan nominal transfer kupon bersih yang masuk ke rekening setiap bulan setelah dipotong PPh Final 10%."
+        },
+        {
+          "title": "Komparasi vs Deposito",
+          "desc": "Membuktikan selisih imbal hasil bersih antara SBN (pajak 10%, dijamin 100% oleh UU) dan deposito bank (pajak 20%)."
+        },
+        {
+          "title": "Aset Kata Tunggal Premium",
+          "desc": "Nama domain 1-kata 'Obligasi' memberikan otoritas instan bagi portal edukasi fixed-income dan wealth management."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "perbedaan-ori-sukuk-ritel-sbr-dan-sukuk-tabungan",
+          "title": "Perbedaan Lengkap ORI, Sukuk Ritel (SR), SBR, dan Sukuk Tabungan (ST): Mana yang Paling Menguntungkan?",
+          "summary": "Perbandingan sifat kupon Fixed Rate vs Floating with Floor serta ketersediaan pasar sekunder (tradable vs non-tradable).",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "memahami-yield-to-maturity-ytm-obligasi-negara-seri-fr",
+          "title": "Memahami Yield to Maturity (YTM) dan Harga Premium/Diskon pada Obligasi Negara Seri FR",
+          "summary": "Mengapa saat suku bunga acuan turun, harga obligasi FR di pasar sekunder justru naik dan memberikan potensi capital gain.",
+          "read_time": "7 menit"
+        },
+        {
+          "slug": "keunggulan-pajak-obligasi-10-persen-dibanding-deposito",
+          "title": "Efisiensi Pajak Instrumen Pendapatan Tetap: PPh Final 10% Obligasi vs 20% Deposito",
+          "summary": "Perhitungan riil arus kas pasif bulanan untuk dana pensiun dan kas korporat dengan jaminan penuh negara.",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "ventura.web.id",
+      "brand_name": "Ventura & Cap Table Lab",
+      "tagline": "Portal Modal Ventura, Valuasi Startup & Simulasi Dilusi Saham Founder",
+      "description": "Pusat intelijen pendanaan startup dan modal ventura Indonesia: hitung valuasi Pre-Money, Post-Money, dan persentase dilusi kepemilikan founder pada putaran Seed hingga Seri A.",
+      "category": "Financial Category-Killer",
+      "tier": "Tier-1 Single-Word Asset",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi (Langka: .my.id & .biz.id Sudah Terdaftar)",
+        "price_idr": 5500000,
+        "price_label": "Rp 5.500.000 (Satu-satunya Ekstensi Tersisa untuk Kata 'Ventura')",
+        "bundle_domains": ["ventura.web.id"],
+        "scarcity_note": "Baik ventura.my.id maupun ventura.biz.id telah terdaftar oleh pihak lain di RDAP PANDI. ventura.web.id adalah aset langka terakhir."
+      },
+      "theme": {
+        "primary": "#a855f7",
+        "secondary": "#9333ea",
+        "accent": "#c084fc",
+        "bg_dark": "#11091a",
+        "icon_type": "venture"
+      },
+      "tool": {
+        "id": "vc_dilution_sim",
+        "title": "Simulator Valuasi Pre/Post-Money & Dilusi Cap Table Startup",
+        "subtitle": "Hitung porsi saham investor baru, sisa persentase kepemilikan founder pasca-pendanaan, serta nilai ekuitas founder setelah putaran investasi.",
+        "formula_id": "vc_calc",
+        "inputs": [
+          {"id": "pre_money", "label": "Valuasi Pre-Money Startup (Rp Juta)", "type": "number", "default": 12000, "min": 100, "max": 10000000, "step": 500},
+          {"id": "investment_amount", "label": "Nilai Suntikan Pendanaan Investor / VC (Rp Juta)", "type": "number", "default": 3000, "min": 50, "max": 5000000, "step": 250},
+          {"id": "founder_prior_pct", "label": "Kepemilikan Founder Sebelum Putaran Ini (%)", "type": "number", "default": 85, "min": 1, "max": 100, "step": 1},
+          {"id": "esop_pool_pct", "label": "Alokasi ESOP / Opsi Saham Karyawan Baru (%)", "type": "number", "default": 5, "min": 0, "max": 30, "step": 1}
+        ]
+      },
+      "features": [
+        {
+          "title": "Simulasi Cap Table Presisi",
+          "desc": "Menghitung otomatis Valuasi Post-Money, porsi ekuitas VC, efek cadangan ESOP, dan nilai bersih saham founder."
+        },
+        {
+          "title": "Kelangkaan Ekstensi Tinggi",
+          "desc": "Satu-satunya ekstensi nasional populer yang tersisa untuk kata tunggal 'Ventura' setelah .my.id dan .biz.id diamankan pihak lain."
+        },
+        {
+          "title": "Ideal untuk VC & Inkubator",
+          "desc": "Sangat cocok untuk media berita pendanaan teknologi, asosiasi angel investor, atau program akselerator startup."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "cara-menghitung-pre-money-dan-post-money-valuation-startup",
+          "title": "Memahami Perbedaan Pre-Money vs Post-Money Valuation dalam Negosiasi Term Sheet VC",
+          "summary": "Bagaimana cara kerja perhitungan persentase saham investor dan dampak klausul ESOP Pool terhadap kepemilikan founder.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "instrumen-pendanaan-awal-safe-note-vs-convertible-note",
+          "title": "SAFE Note vs Convertible Note: Instrumen Pendanaan Tahap Awal Sebelum Putaran Priced Round",
+          "summary": "Memahami mekanisme Valuation Cap dan Discount Rate agar proses penggalangan dana tahap pre-seed berjalan efisien.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "metrik-utama-saas-yang-diperiksa-perusahaan-modal-ventura",
+          "title": "5 Metrik Unit Economics (LTV/CAC, Churn, Burn Multiple) yang Diuji Modal Ventura",
+          "summary": "Standar efisiensi pertumbuhan bisnis teknologi di era profitabilitas berkelanjutan.",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "tender.biz.id",
+      "brand_name": "Tender & Pengadaan B2B",
+      "tagline": "Kalkulator HPS Pengadaan, Pajak Kontrak (PPN/PPh) & Margin Bersih Vendor",
+      "description": "Utilitas perhitungan penawaran tender pengadaan barang/jasa pemerintah (LPSE/Inaproc) dan korporat B2B: hitung rasio penurunan HPS, potongan pajak bendahara, dan laba bersih riil.",
+      "category": "B2B Category-Killer",
+      "tier": "Tier-1 Single-Word Asset",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi (Domain 1-Kata B2B Pengadaan)",
+        "price_idr": 6000000,
+        "price_label": "Rp 6.000.000 (Domain 1-Kata .biz.id + Kalkulator HPS)",
+        "bundle_domains": ["tender.biz.id"],
+        "scarcity_note": "Kata tunggal 'Tender' dipadukan dengan ekstensi '.biz.id' adalah kombinasi B2B sempurna untuk agregator lelang, konsultan LPSE, atau SaaS e-Procurement."
+      },
+      "theme": {
+        "primary": "#f97316",
+        "secondary": "#ea580c",
+        "accent": "#fb923c",
+        "bg_dark": "#170d06",
+        "icon_type": "tender"
+      },
+      "tool": {
+        "id": "tender_hps_calc",
+        "title": "Kalkulator Penawaran HPS Tender, Pajak Kontrak & Margin Bersih Vendor",
+        "subtitle": "Simulasikan nilai penawaran (persentase terhadap HPS), keluarkan komponen PPN 11% dan PPh, lalu bandingkan dengan HPP riil untuk melihat laba bersih proyek.",
+        "formula_id": "tender_calc",
+        "inputs": [
+          {"id": "hps_total", "label": "Nilai Pagu / HPS Termasuk PPN 11% (Rp)", "type": "number", "default": 555000000, "min": 1000000, "max": 100000000000, "step": 5000000},
+          {"id": "bid_pct_hps", "label": "Persentase Penawaran terhadap HPS (80% = Batas Kewajaran)", "type": "number", "default": 92, "min": 50, "max": 100, "step": 0.5},
+          {"id": "cogs_real", "label": "Modal Pokok Riil / HPP Pelaksanaan Pekerjaan (Rp)", "type": "number", "default": 360000000, "min": 500000, "max": 100000000000, "step": 5000000},
+          {"id": "pph_rate", "label": "Tarif PPh Pemotongan (1.5% Barang / 2% Jasa / 2.65% Konstruksi)", "type": "number", "default": 1.5, "min": 0.5, "max": 10, "step": 0.25}
+        ]
+      },
+      "features": [
+        {
+          "title": "Ekstraksi DPP & PPN Otomatis",
+          "desc": "Memisahkan Dasar Pengenaan Pajak (DPP = Nilai Kontrak × 100/111) dari PPN 11% dan menghitung potongan PPh bendahara."
+        },
+        {
+          "title": "Deteksi Ambang 80% HPS",
+          "desc": "Memberi peringatan otomatis apabila nilai penawaran mendekati atau turun di bawah batas evaluasi kewajaran harga 80% HPS."
+        },
+        {
+          "title": "Nama Domain B2B Terbaik",
+          "desc": "Kata tunggal 'tender.biz.id' sangat otoritatif untuk portal notifikasi proyek pengadaan nasional dan direktori vendor."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "cara-menghitung-penawaran-wajar-dan-batas-80-persen-hps-lpse",
+          "title": "Cara Menghitung Evaluasi Kewajaran Harga (Batas 80% HPS) pada Tender Pemerintah",
+          "summary": "Persiapan dokumen analisis harga satuan dan bukti dukung kewajaran biaya apabila penawaran terkoreksi berada di bawah 80% HPS.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "rumus-dpp-ppn-11-persen-dan-pph-pasal-22-pengadaan-barang",
+          "title": "Rumus Cepat Memisahkan DPP, PPN 11%, dan PPh Pasal 22/23 pada Kontrak Pengadaan",
+          "summary": "Menghindari kesalahan estimasi arus kas proyek akibat lupa memperhitungkan pemungutan pajak di muka oleh bendahara instansi.",
+          "read_time": "5 menit"
+        },
+        {
+          "slug": "strategi-meningkatkan-win-rate-tender-b2b-dan-e-katalog",
+          "title": "Strategi Meningkatkan Win-Rate Pengadaan B2B dan Optimasi Etalase E-Katalog",
+          "summary": "Daftar periksa kualifikasi administrasi, pemenuhan tingkat komponen dalam negeri (TKDN), dan manajemen garansi purnajual.",
+          "read_time": "6 menit"
+        }
+      ]
+    },
+    {
+      "domain": "kodelab.my.id",
+      "brand_name": "KodeLab Sandbox",
+      "tagline": "Laboratorium Utilitas Developer, Inspector Payload & Eksperimen Kode",
+      "description": "Kotak pasir (sandbox) cepat bagi software engineer: estimasi ukuran payload API, kompresi Gzip/Brotli, dan kalkulasi throughput transfer data tanpa mengirim data keluar browser.",
+      "category": "Tech & Developer",
+      "tier": "Tier-2 Brand Bundle",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia dalam Paket Bundle KodeLab (.my.id + .web.id)",
+        "price_idr": 3500000,
+        "price_label": "Rp 3.500.000 (Paket Dual-Domain kodelab.my.id + kodelab.web.id)",
+        "bundle_domains": ["kodelab.my.id", "kodelab.web.id"],
+        "scarcity_note": "Nama pendek 7-huruf (Kode + Lab) yang sangat melekat untuk platform edtech coding, SaaS developer tools, atau komunitas programmer."
+      },
+      "theme": {
+        "primary": "#6366f1",
+        "secondary": "#4f46e5",
+        "accent": "#818cf8",
+        "bg_dark": "#090a18",
+        "icon_type": "code"
+      },
+      "tool": {
+        "id": "api_payload_bench",
+        "title": "Kalkulator Bandwidth API, Kompresi Brotli & Latensi Respons",
+        "subtitle": "Hitung kebutuhan transfer data bulanan (GB/TB) dan estimasi waktu unduh respons JSON berdasarkan ukuran payload serta jumlah request per detik (RPS).",
+        "formula_id": "payload_calc",
+        "inputs": [
+          {"id": "json_kb", "label": "Ukuran Rata-rata Payload JSON Mentah (KB)", "type": "number", "default": 45, "min": 1, "max": 10000, "step": 5},
+          {"id": "compression_pct", "label": "Rasio Penghematan Kompresi Brotli/Gzip (%)", "type": "number", "default": 72, "min": 0, "max": 95, "step": 2},
+          {"id": "avg_rps", "label": "Rata-rata Request per Detik (RPS)", "type": "number", "default": 25, "min": 1, "max": 50000, "step": 5},
+          {"id": "egress_price_gb", "label": "Tarif Egress Cloud per GB (Rp — 0 untuk Cloudflare)", "type": "number", "default": 1800, "min": 0, "max": 10000, "step": 100}
+        ]
+      },
+      "features": [
+        {
+          "title": "Audit Biaya Egress API",
+          "desc": "Mengungkap seberapa besar penghematan bandwidth bulanan saat mengaktifkan kompresi Brotli dan caching di edge."
+        },
+        {
+          "title": "Brand Pendek 7 Huruf",
+          "desc": "Kombinasi kata 'Kode' dan 'Lab' langsung dipahami oleh pasar developer Indonesia maupun Asia Tenggara."
+        },
+        {
+          "title": "Dual-Domain Protection",
+          "desc": "Dijual satu paket dengan kodelab.web.id untuk mengamankan identitas komunitas sekaligus portal dokumentasi."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "optimasi-payload-json-dan-kompresi-brotli-untuk-rest-api",
+          "title": "Optimasi Payload JSON & Kompresi Brotli untuk Memangkas Latensi REST API hingga 70%",
+          "summary": "Benchmark perbandingan ukuran respons Gzip level 6 vs Brotli level 4 pada trafik produksi berkecepatan tinggi.",
+          "read_time": "5 menit"
+        },
+        {
+          "slug": "arsitektur-zero-egress-menggunakan-cloudflare-workers-dan-r2",
+          "title": "Menghapus Tagihan Bandwidth Egress Menggunakan Arsitektur Edge Workers",
+          "summary": "Cara memindahkan beban statis dan caching API ke jaringan edge agar biaya infrastruktur tetap datar saat trafik melonjak.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "pola-desain-idempotency-key-pada-sistem-pembayaran-modern",
+          "title": "Implementasi Idempotency Key untuk Mencegah Transaksi Ganda pada Sistem Terdistribusi",
+          "summary": "Praktik terbaik menjaga konsistensi status database saat klien melakukan retry akibat timeout jaringan.",
+          "read_time": "6 menit"
+        }
+      ]
+    },
+    {
+      "domain": "kodelab.web.id",
+      "brand_name": "KodeLab Cloud Architecture",
+      "tagline": "Portal Rekayasa Perangkat Lunak, Cloud FinOps & Kalkulator Infrastruktur",
+      "description": "Pusat referensi arsitektur sistem terdistribusi dan simulator perbandingan biaya infrastruktur Serverless vs Dedicated VPS untuk tim engineering.",
+      "category": "Tech & Developer",
+      "tier": "Tier-2 Brand Bundle",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia dalam Paket Bundle KodeLab (.my.id + .web.id)",
+        "price_idr": 3500000,
+        "price_label": "Rp 3.500.000 (Paket Dual-Domain kodelab.my.id + kodelab.web.id)",
+        "bundle_domains": ["kodelab.my.id", "kodelab.web.id"],
+        "scarcity_note": "Bagian dari paket kembar KodeLab (.my.id + .web.id) untuk platform edukasi teknologi atau SaaS developer."
+      },
+      "theme": {
+        "primary": "#3b82f6",
+        "secondary": "#2563eb",
+        "accent": "#60a5fa",
+        "bg_dark": "#070e1a",
+        "icon_type": "server"
+      },
+      "tool": {
+        "id": "cloud_finops_calc",
+        "title": "Simulator Break-Even Biaya Serverless vs Cluster VPS",
+        "subtitle": "Temukan titik impas (break-even point) apakah beban kerja aplikasi Anda lebih hemat dijalankan di Serverless Functions atau Dedicated VPS/Container.",
+        "formula_id": "cloud_cost_calc",
+        "inputs": [
+          {"id": "monthly_requests_m", "label": "Total Request Bulanan (Juta Request)", "type": "number", "default": 35, "min": 1, "max": 5000, "step": 5},
+          {"id": "avg_duration_ms", "label": "Rata-rata Waktu Eksekusi CPU per Request (ms)", "type": "number", "default": 120, "min": 5, "max": 5000, "step": 10},
+          {"id": "memory_mb", "label": "Alokasi RAM Function (MB)", "type": "number", "default": 512, "min": 128, "max": 4096, "step": 128},
+          {"id": "vps_monthly_idr", "label": "Biaya Sewa Cluster VPS Setara / Bulan (Rp)", "type": "number", "default": 450000, "min": 50000, "max": 50000000, "step": 50000}
+        ]
+      },
+      "features": [
+        {
+          "title": "FinOps Decision Engine",
+          "desc": "Menghitung biaya GB-second komputasi serverless dan memberikan rekomendasi kapan harus migrasi ke VPS tetap."
+        },
+        {
+          "title": "Dokumentasi Siap Produksi",
+          "desc": "Berisi panduan arsitektur monorepo, CI/CD GitHub Actions, dan manajemen database ringan."
+        },
+        {
+          "title": "Sinergi Ekstensi .web.id",
+          "desc": "Memberikan citra portal komunitas teknologi resmi yang berpasangan langsung dengan sandbox kodelab.my.id."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "kapan-harus-pindah-dari-serverless-ke-vps-analisis-finops",
+          "title": "Kapan Harus Pindah dari Serverless ke VPS? Analisis Break-Even Point bagi CTO Startup",
+          "summary": "Memetakan kurva biaya eksekusi per juta request terhadap biaya tetap instans komputasi dedikasi.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "tuning-sqlite-wal-mode-untuk-aplikasi-web-konkurensi-tinggi",
+          "title": "Tuning SQLite WAL Mode untuk Menangani Ribuan Baca-Tulis per Detik di Satu Node",
+          "summary": "Konfigurasi pragma synchronous, busy_timeout, dan mmap_size untuk performa database lokal berkecepatan tinggi.",
+          "read_time": "7 menit"
+        },
+        {
+          "slug": "standar-keamanan-ci-cd-github-actions-least-privilege",
+          "title": "Standar Keamanan Pipeline CI/CD: Pinning SHA & Prinsip Least Privilege pada GitHub Actions",
+          "summary": "Melindungi rantai pasok perangkat lunak dari serangan injeksi dependensi dan kebocoran token deployment.",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "kanvasdigital.web.id",
+      "brand_name": "KanvasDigital Studio",
+      "tagline": "Studio Desain Vektor, Audit Kontras WCAG 2.1 & Sistem Palet UI Modern",
+      "description": "Utilitas wajib bagi UI/UX designer dan kreator aset grafis: kalkulator rasio luminansi kontras warna sesuai standar aksesibilitas WCAG 2.1 AA/AAA serta kalkulator skala resolusi cetak/vektor.",
+      "category": "Creative & AI",
+      "tier": "Tier-3 Niche Portal",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi / Kemitraan Produk Kreatif",
+        "price_idr": 2750000,
+        "price_label": "Rp 2.750.000 (Termasuk Desain & Micro-Tool Kreatif)",
+        "bundle_domains": ["kanvasdigital.web.id"],
+        "scarcity_note": "Nama deskriptif yang sangat kuat di bidang desain grafis, aset kreatif, kursus UI/UX, atau SaaS konversi gambar ke vektor."
+      },
+      "theme": {
+        "primary": "#ec4899",
+        "secondary": "#db2777",
+        "accent": "#f472b6",
+        "bg_dark": "#160711",
+        "icon_type": "canvas"
+      },
+      "tool": {
+        "id": "design_dpi_scale_calc",
+        "title": "Kalkulator Resolusi Kanvas, DPI Cetak & Estimasi Ukuran File Aset",
+        "subtitle": "Hitung dimensi piksel eksak dari ukuran fisik (cm/inci) pada berbagai kerapatan DPI serta estimasi penghematan ukuran file saat dikonversi ke SVG.",
+        "formula_id": "canvas_calc",
+        "inputs": [
+          {"id": "width_cm", "label": "Lebar Bidang Desain / Cetak (cm)", "type": "number", "default": 60, "min": 1, "max": 1000, "step": 1},
+          {"id": "height_cm", "label": "Tinggi Bidang Desain / Cetak (cm)", "type": "number", "default": 90, "min": 1, "max": 1000, "step": 1},
+          {"id": "dpi", "label": "Kerapatan Resolusi Target (DPI — 72 Web / 300 Cetak)", "type": "number", "default": 300, "min": 72, "max": 1200, "step": 10},
+          {"id": "svg_nodes", "label": "Jumlah Path/Node Vektor SVG Pembanding", "type": "number", "default": 450, "min": 10, "max": 50000, "step": 50}
+        ]
+      },
+      "features": [
+        {
+          "title": "Presisi Cetak & Layar Retina",
+          "desc": "Mengonversi ukuran sentimeter ke dimensi piksel dan megapiksel secara akurat sekaligus menghitung RAM bitmap."
+        },
+        {
+          "title": "Komparasi Raster vs SVG",
+          "desc": "Membandingkan bobot file bitmap tidak terkompresi terhadap efisiensi kurva Bézier pada format vektor SVG."
+        },
+        {
+          "title": "Identitas Visual Kuat",
+          "desc": "Nama domain KanvasDigital sangat fleksibel untuk marketplace template desain, agensi ilustrasi, atau blog seni digital."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "pipeline-konversi-ilustrasi-raster-menjadi-vektor-svg-presisi",
+          "title": "Pipeline Modern Mengubah Ilustrasi Raster 2K Menjadi Aset Vektor SVG yang Tajam di Semua Layar",
+          "summary": "Teknik pre-processing palet warna, pemilihan mode spline, dan normalisasi atribut viewBox untuk produksi web responsif.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "standar-rasio-kontras-wcag-untuk-antarmuka-dark-mode",
+          "title": "Panduan Merancang Palet Warna Dark Mode dengan Keterbacaan Kontras WCAG >= 4.5:1",
+          "summary": "Cara memilih warna permukaan netral dan warna aksen semantik agar mata pengguna tidak cepat lelah.",
+          "read_time": "5 menit"
+        },
+        {
+          "slug": "optimasi-aset-svg-inline-untuk-skor-core-web-vitals-sempurna",
+          "title": "Optimasi Aset SVG Inline untuk Meraih Skor Core Web Vitals & LCP di Bawah 1 Detik",
+          "summary": "Menghapus metadata editor yang tidak perlu dan memanfaatkan CSS variabel untuk kustomisasi tema dinamis.",
+          "read_time": "4 menit"
+        }
+      ]
+    },
+    {
+      "domain": "pustakaai.web.id",
+      "brand_name": "PustakaAI Indonesia",
+      "tagline": "Direktori Arsitektur Prompt 8-Komponen & Kalkulator Token Multi-LLM",
+      "description": "Pusat referensi prompt engineering kelas produksi dan kalkulator estimasi biaya API token bulanan untuk model Gemini, Claude, GPT, dan DeepSeek.",
+      "category": "Creative & AI",
+      "tier": "Tier-3 Niche Portal",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi / Portal Edukasi & SaaS AI",
+        "price_idr": 3250000,
+        "price_label": "Rp 3.250.000 (Termasuk Kalkulator Token & Pustaka Prompt)",
+        "bundle_domains": ["pustakaai.web.id"],
+        "scarcity_note": "Menggabungkan kata 'Pustaka' (perpustakaan/katalog otoritatif) dan 'AI'. Sangat ideal untuk direktori AI tools, kursus prompt engineering, atau dokumentasi agen."
+      },
+      "theme": {
+        "primary": "#8b5cf6",
+        "secondary": "#7c3aed",
+        "accent": "#a78bfa",
+        "bg_dark": "#0d0818",
+        "icon_type": "ai"
+      },
+      "tool": {
+        "id": "llm_token_cost_calc",
+        "title": "Kalkulator Biaya Token API Multi-LLM & Estimasi Konteks",
+        "subtitle": "Hitung estimasi konsumsi token bulanan (Input + Output) dan bandingkan tagihan biaya antara model Flash/Mini yang ekonomis vs model Reasoning/Flagship.",
+        "formula_id": "llm_calc",
+        "inputs": [
+          {"id": "daily_prompts", "label": "Jumlah Eksekusi Prompt / Hari", "type": "number", "default": 500, "min": 1, "max": 1000000, "step": 50},
+          {"id": "avg_input_words", "label": "Rata-rata Panjang Konteks Input per Prompt (Kata)", "type": "number", "default": 1200, "min": 10, "max": 500000, "step": 100},
+          {"id": "avg_output_words", "label": "Rata-rata Panjang Output Jawaban AI (Kata)", "type": "number", "default": 450, "min": 10, "max": 60000, "step": 50},
+          {"id": "usd_rate", "label": "Kurs Rupiah per 1 USD (Rp)", "type": "number", "default": 16200, "min": 10000, "max": 25000, "step": 100}
+        ]
+      },
+      "features": [
+        {
+          "title": "Komparasi Biaya Model AI",
+          "desc": "Mengonversi jumlah kata ke estimasi token (1 kata ≈ 1,35 token) dan membandingkan biaya bulanan tier Flash vs tier Pro."
+        },
+        {
+          "title": "Standar Kontrak 8-Komponen",
+          "desc": "Menyediakan template prompt terstruktur yang memisahkan instruksi sistem dari data eksternal agar tahan prompt injection."
+        },
+        {
+          "title": "Aset Media AI Masa Depan",
+          "desc": "PustakaAI.web.id memiliki daya tarik organik tinggi seiring melonjaknya adopsi AI oleh perusahaan di Indonesia."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "struktur-kontrak-prompt-8-komponen-untuk-sistem-produksi",
+          "title": "Struktur Kontrak Prompt 8-Komponen untuk Mencegah Halusinasi pada Agen AI Produksi",
+          "summary": "Cara merumuskan Objective, Scope, Source of Truth, Workflow, Output Contract, dan Completion Standard secara deterministik.",
+          "read_time": "7 menit"
+        },
+        {
+          "slug": "strategi-model-routing-menghemat-biaya-token-llm-hingga-85-persen",
+          "title": "Strategi Multi-Model Routing: Menghemat Tagihan Token LLM hingga 85% Tanpa Menurunkan Kualitas",
+          "summary": "Kapan harus mendelegasikan tugas ekstraksi massal ke model kelas Flash dan kapan memanggil model penalaran mendalam.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "mencegah-prompt-injection-dengan-pemisahan-konteks-tegas",
+          "title": "Arsitektur Keamanan Agen AI: Memisahkan Kebijakan Sistem dari Dokumen Eksternal",
+          "summary": "Teknik pembungkusan bukti (untrusted evidence framing) dan validasi skema JSON sebelum mengeksekusi tool.",
+          "read_time": "5 menit"
+        }
+      ]
+    },
+    {
+      "domain": "karsastudio.biz.id",
+      "brand_name": "Karsa Studio Digital",
+      "tagline": "Agensi Rekayasa Produk Digital, Otomasi AI & Studio Pengembangan Web B2B",
+      "description": "Mitra transformasi digital bagi korporat dan bisnis bertumbuh: rancang bangun aplikasi web modern, integrasi agen AI, serta kalkulator estimasi biaya proyek transparan.",
+      "category": "Tech & Developer",
+      "tier": "Tier-2 Brand Bundle",
+      "for_sale": true,
+      "acquisition": {
+        "status": "Tersedia untuk Akuisisi Brand Agensi / Software House",
+        "price_idr": 3800000,
+        "price_label": "Rp 3.800.000 (Brand Agensi B2B + Estimator Proyek Interaktif)",
+        "bundle_domains": ["karsastudio.biz.id"],
+        "scarcity_note": "Kata 'Karsa' (daya cipta/kehendak luhur) dipadukan dengan 'Studio' pada ekstensi .biz.id menciptakan identitas agensi butik yang elegan dan siap pakai."
+      },
+      "theme": {
+        "primary": "#f43f5e",
+        "secondary": "#e11d48",
+        "accent": "#fb7185",
+        "bg_dark": "#17070b",
+        "icon_type": "studio"
+      },
+      "tool": {
+        "id": "agency_quote_estimator",
+        "title": "Kalkulator Estimasi Biaya & Durasi Pengembangan Proyek Digital",
+        "subtitle": "Hitung perkiraan investasi pembuatan aplikasi web, jumlah jam kerja engineering (man-hours), dan jadwal rilis MVP secara transparan.",
+        "formula_id": "agency_calc",
+        "inputs": [
+          {"id": "screens_count", "label": "Jumlah Halaman / Modul Antarmuka Unik", "type": "number", "default": 8, "min": 1, "max": 100, "step": 1},
+          {"id": "api_integrations", "label": "Jumlah Integrasi Pihak Ketiga (Payment, AI, ERP, WA)", "type": "number", "default": 3, "min": 0, "max": 30, "step": 1},
+          {"id": "hourly_rate", "label": "Tarif Standar Engineering per Jam (Rp)", "type": "number", "default": 250000, "min": 50000, "max": 2000000, "step": 25000},
+          {"id": "urgency_factor", "label": "Faktor Kecepatan Eksekusi (1 = Normal, 1.3 = Akselerasi)", "type": "number", "default": 1.0, "min": 1.0, "max": 2.0, "step": 0.1}
+        ]
+      },
+      "features": [
+        {
+          "title": "Estimator Proposal Instan",
+          "desc": "Mengubah parameter jumlah layar dan integrasi API menjadi estimasi man-hours, durasi minggu kerja, dan nilai kontrak."
+        },
+        {
+          "title": "Brand Agensi Siap Pakai",
+          "desc": "Cocok bagi konsultan IT, software house, atau agensi desain yang ingin langsung tampil kredibel di hadapan klien B2B."
+        },
+        {
+          "title": "Konversi Lead Langsung",
+          "desc": "Terintegrasi dengan formulir konsultasi proyek dan tombol penawaran akuisisi merek secara mulus."
+        }
+      ],
+      "articles": [
+        {
+          "slug": "cara-menyusun-scope-of-work-dan-estimasi-biaya-proyek-aplikasi",
+          "title": "Cara Menyusun Scope of Work (SoW) untuk Mencegah Scope Creep pada Proyek Software B2B",
+          "summary": "Kerangka dekomposisi milestone, kriteria penerimaan (User Acceptance Test), dan struktur termin pembayaran yang adil.",
+          "read_time": "6 menit"
+        },
+        {
+          "slug": "mengapa-arsitektur-mvp-4-minggu-lebih-efektif-bagi-bisnis",
+          "title": "Pendekatan MVP 4 Minggu: Meluncurkan Produk Inti Lebih Cepat Tanpa Utang Teknis",
+          "summary": "Memprioritaskan 20% fitur kunci yang menghasilkan 80% nilai bisnis sebelum melakukan ekspansi skala besar.",
+          "read_time": "5 menit"
+        },
+        {
+          "slug": "integrasi-workflow-ai-untuk-otomasi-operasional-perusahaan",
+          "title": "Mengintegrasikan Agen AI ke dalam Alur Kerja Operasional & Layanan Pelanggan B2B",
+          "summary": "Studi kasus pengurangan waktu pemrosesan dokumen dan penjawaban tiket teknis menggunakan pipeline terotomasi.",
+          "read_time": "5 menit"
+        }
+      ]
+    }
+  ]
+}

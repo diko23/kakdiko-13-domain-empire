@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tender & Pengadaan B2B — Kalkulator HPS Pengadaan, Pajak Kontrak (PPN/PPh) & Margin Bersih Vendor | tender.biz.id</title>
+  <meta name="description" content="Utilitas perhitungan penawaran tender pengadaan barang/jasa pemerintah (LPSE/Inaproc) dan korporat B2B: hitung rasio penurunan HPS, potongan pajak bendahara, dan laba bersih riil." />
+  <link rel="canonical" href="https://tender.biz.id/" />
+  <meta property="og:title" content="Tender & Pengadaan B2B — Kalkulator HPS Pengadaan, Pajak Kontrak (PPN/PPh) & Margin Bersih Vendor" />
+  <meta property="og:description" content="Utilitas perhitungan penawaran tender pengadaan barang/jasa pemerintah (LPSE/Inaproc) dan korporat B2B: hitung rasio penurunan HPS, potongan pajak bendahara, dan laba bersih riil." />
+  <meta property="og:url" content="https://tender.biz.id/" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#f97316" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Tender & Pengadaan B2B (tender.biz.id)", "url": "https://tender.biz.id/", "description": "Utilitas perhitungan penawaran tender pengadaan barang/jasa pemerintah (LPSE/Inaproc) dan korporat B2B: hitung rasio penurunan HPS, potongan pajak bendahara, dan laba bersih riil.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "author": {"@type": "Person", "name": "Kak Diko", "url": "https://kakdiko.web.id/"}, "offers": {"@type": "Offer", "price": "6000000", "priceCurrency": "IDR", "availability": "https://schema.org/InStock", "description": "Rp 6.000.000 (Domain 1-Kata .biz.id + Kalkulator HPS)"}}</script>
+  <style>
+    :root {
+      --primary: #f97316;
+      --secondary: #ea580c;
+      --accent: #fb923c;
+      --bg-dark: #170d06;
+      --surface: #0f172a;
+      --surface-2: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.18);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: radial-gradient(circle at 15% 0%, rgba(255,255,255,0.05), transparent 45%), var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.85; }
+
+    /* Top Acquisition Bar */
+    .acq-topbar {
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      color: #020617;
+      padding: 0.55rem 1.25rem;
+      font-size: 0.88rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .acq-topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .acq-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      font-weight: 500;
+    }
+    .acq-topbar-left code {
+      background: rgba(2, 6, 23, 0.15);
+      padding: 0.1rem 0.45rem;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #020617;
+      display: inline-block;
+    }
+    .btn-topbar {
+      background: #020617;
+      color: #f8fafc !important;
+      border: none;
+      padding: 0.38rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    /* Header Navbar */
+    .navbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+    .brand-domain {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-family: monospace;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+    }
+    .nav-links a { color: var(--text-muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--text-main); }
+
+    /* Container & Sections */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .hero {
+      padding: 3.8rem 0 2.8rem;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding: 2.5rem 0 1.8rem; }
+    }
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
+    }
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      max-width: 640px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #020617;
+      font-weight: 700;
+      padding: 0.8rem 1.45rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      font-weight: 600;
+      padding: 0.8rem 1.35rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .hero-card {
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+    .hero-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+    }
+    .meta-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+    .meta-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .meta-list li:last-child { border-bottom: none; }
+    .meta-key { color: var(--text-muted); }
+    .meta-val { font-weight: 700; color: var(--text-main); text-align: right; }
+
+    /* Micro-Tool Workspace */
+    .tool-section {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.72), rgba(15, 23, 42, 0.92));
+      border: 1px solid var(--primary);
+      border-radius: 20px;
+      padding: 2.2rem;
+      margin: 1.5rem 0 3rem;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+    .tool-header {
+      margin-bottom: 1.75rem;
+    }
+    .eyebrow {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .tool-header h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+    .tool-header p { color: var(--text-muted); font-size: 0.96rem; }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+    .inputs-panel {
+      background: rgba(2, 6, 23, 0.55);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem;
+    }
+    .input-group { margin-bottom: 1.1rem; }
+    .input-group:last-child { margin-bottom: 0; }
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 560px) {
+      .results-grid { grid-template-columns: 1fr; }
+    }
+    .result-card {
+      background: rgba(2, 6, 23, 0.65);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+    }
+    .result-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .result-value {
+      font-size: 1.38rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+    .result-sub {
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    .insight-box {
+      background: rgba(2, 6, 23, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+    }
+    .insight-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
+      color: var(--accent);
+    }
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+    .insight-text {
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    /* Bundle Card */
+    .bundle-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+      border: 1px solid var(--accent);
+      border-radius: 16px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .bundle-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #020617;
+      background: var(--accent);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .bundle-info h3 { font-size: 1.3rem; margin-bottom: 0.35rem; }
+    .bundle-info p { color: var(--text-muted); font-size: 0.92rem; max-width: 680px; margin-bottom: 0.9rem; }
+    .bundle-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .bundle-pill {
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      font-family: monospace;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+    .bundle-pill.active-pill {
+      border-color: var(--primary);
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .bundle-price {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      text-align: right;
+    }
+
+    /* Features & Articles */
+    .section { padding: 2.5rem 0; }
+    .section-header { margin-bottom: 1.8rem; }
+    .section-header h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .section-header p { color: var(--text-muted); }
+
+    .features-grid, .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.35rem;
+    }
+    @media (max-width: 860px) {
+      .features-grid, .articles-grid { grid-template-columns: 1fr; }
+    }
+    .feature-card, .article-card {
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .feature-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: var(--primary);
+      margin-bottom: 0.9rem;
+    }
+    .feature-card h3, .article-card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+    .feature-card p, .article-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    .article-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.76rem;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+      font-weight: 600;
+    }
+    .article-footer {
+      margin-top: 1.2rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Empire Table on kakdiko.web.id */
+    .table-wrap {
+      overflow-x: auto;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .empire-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .empire-table th, .empire-table td {
+      padding: 0.9rem 1.1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .empire-table th {
+      background: rgba(2, 6, 23, 0.6);
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cat-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .status-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      display: inline-block;
+    }
+    .status-pill.sale { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+    .status-pill.core { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
+
+    /* Footer */
+    .footer {
+      margin-top: 4rem;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+      background: rgba(2, 6, 23, 0.7);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .sister-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .sister-grid a {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .sister-grid a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 1rem;
+    }
+    .modal-backdrop.active { display: flex; }
+    .modal-card {
+      background: #0f172a;
+      border: 1px solid var(--primary);
+      border-radius: 18px;
+      max-width: 520px;
+      width: 100%;
+      padding: 1.8rem;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
+        <div class="acq-topbar">
+          <div class="acq-topbar-inner">
+            <div class="acq-topbar-left">
+              <span class="pulse-dot"></span>
+              <strong>ASET DOMAIN PREMIUM DIJUAL:</strong>
+              <span><code>tender.biz.id</code> — Rp 6.000.000 (Domain 1-Kata .biz.id + Kalkulator HPS)</span>
+            </div>
+            <div class="acq-topbar-right">
+              <button type="button" class="btn-topbar" onclick="openAcquireModal()">Ajukan Penawaran / Akuisisi →</button>
+            </div>
+          </div>
+        </div>
+        
+
+  <header class="navbar">
+    <a href="./" class="brand-box">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Tender & Pengadaan B2B Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#f97316" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <rect x="12" y="10" width="34" height="44" rx="4" fill="none" stroke="#f97316" stroke-width="3.5"/>
+            <line x1="20" y1="22" x2="38" y2="22" stroke="#fb923c" stroke-width="3" stroke-linecap="round"/>
+            <line x1="20" y1="31" x2="38" y2="31" stroke="#fb923c" stroke-width="3" stroke-linecap="round"/>
+            <polyline points="20,41 25,46 36,36" fill="none" stroke="#fb923c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        
+</svg>
+      <div>
+        <div class="brand-title">Tender & Pengadaan B2B</div>
+        <div class="brand-domain">tender.biz.id</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#micro-tool">Simulator Interaktif</a>
+      <a href="#riset-pilar">Riset & Panduan</a>
+      <a href="../kakdiko.web.id/">Ekosistem 13 Domain</a>
+      <a href="../" title="Empire Command Center">Command Center</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="badge-row">
+          <span class="badge">Tier-1 Single-Word Asset</span>
+          <span class="badge">B2B Category-Killer</span>
+          <span class="badge">RDAP Verified</span>
+        </div>
+        <h1>Kalkulator HPS Pengadaan, Pajak Kontrak (PPN/PPh) & Margin Bersih Vendor</h1>
+        <p>Utilitas perhitungan penawaran tender pengadaan barang/jasa pemerintah (LPSE/Inaproc) dan korporat B2B: hitung rasio penurunan HPS, potongan pajak bendahara, dan laba bersih riil.</p>
+        <div class="cta-row">
+          <a href="#micro-tool" class="btn-primary">Buka Kalkulator Penawaran HPS Tender, Pajak Kontrak & Margin Bersih Vendor ↓</a>
+          <button type="button" class="btn-outline" onclick="openAcquireModal()">
+            Ajukan Akuisisi Domain
+          </button>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Spesifikasi Properti Digital</h3>
+        <ul class="meta-list">
+          <li><span class="meta-key">Nama Domain</span><span class="meta-val"><code>tender.biz.id</code></span></li>
+          <li><span class="meta-key">Klasifikasi Aset</span><span class="meta-val">Tier-1 Single-Word Asset</span></li>
+          <li><span class="meta-key">Status Akuisisi</span><span class="meta-val">Tersedia untuk Akuisisi (Domain 1-Kata B2B Pengadaan)</span></li>
+          <li><span class="meta-key">Valuasi / Harga</span><span class="meta-val">Rp 6.000.000 (Domain 1-Kata .biz.id + Kalkulator HPS)</span></li>
+          <li><span class="meta-key">Mesin Aplikasi</span><span class="meta-val">Client-Side ES6 + JSON-LD</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="tool-section" id="micro-tool">
+      <div class="tool-header">
+        <span class="eyebrow">INTERACTIVE MICRO-TOOL • TENDER.BIZ.ID</span>
+        <h2>Kalkulator Penawaran HPS Tender, Pajak Kontrak & Margin Bersih Vendor</h2>
+        <p>Simulasikan nilai penawaran (persentase terhadap HPS), keluarkan komponen PPN 11% dan PPh, lalu bandingkan dengan HPP riil untuk melihat laba bersih proyek.</p>
+      </div>
+
+      <div class="tool-grid">
+        <div class="inputs-panel">
+          
+        <div class="input-group">
+          <label for="input_hps_total">Nilai Pagu / HPS Termasuk PPN 11% (Rp)</label>
+          <input
+            type="number"
+            id="input_hps_total"
+            value="555000000"
+            min="1000000"
+            max="100000000000"
+            step="5000000"
+            oninput="runMicroTool('tender_calc')"
+          />
+        </div>
+        
+        <div class="input-group">
+          <label for="input_bid_pct_hps">Persentase Penawaran terhadap HPS (80% = Batas Kewajaran)</label>
+          <input
+            type="number"
+            id="input_bid_pct_hps"
+            value="92"
+            min="50"
+            max="100"
+            step="0.5"
+            oninput="runMicroTool('tender_calc')"
+          />
+        </div>
+        
+        <div class="input-group">
+          <label for="input_cogs_real">Modal Pokok Riil / HPP Pelaksanaan Pekerjaan (Rp)</label>
+          <input
+            type="number"
+            id="input_cogs_real"
+            value="360000000"
+            min="500000"
+            max="100000000000"
+            step="5000000"
+            oninput="runMicroTool('tender_calc')"
+          />
+        </div>
+        
+        <div class="input-group">
+          <label for="input_pph_rate">Tarif PPh Pemotongan (1.5% Barang / 2% Jasa / 2.65% Konstruksi)</label>
+          <input
+            type="number"
+            id="input_pph_rate"
+            value="1.5"
+            min="0.5"
+            max="10"
+            step="0.25"
+            oninput="runMicroTool('tender_calc')"
+          />
+        </div>
+        
+        </div>
+        <div>
+          <div class="results-grid" id="tool_results_grid"></div>
+          <div class="insight-box" id="tool_insight_box"></div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    
+
+    <section class="section">
+      <div class="section-header">
+        <span class="eyebrow">KEUNGGULAN ARSITEKTUR & NILAI ASET</span>
+        <h2>Mengapa Tender & Pengadaan B2B (tender.biz.id) Bernilai Strategis?</h2>
+        <p>Dirancang dengan standar produksi tinggi untuk konversi organik, kecepatan ekstrem, dan otoritas merek.</p>
+      </div>
+      <div class="features-grid">
+        
+        <div class="feature-card">
+          <div class="feature-dot"></div>
+          <h3>Ekstraksi DPP & PPN Otomatis</h3>
+          <p>Memisahkan Dasar Pengenaan Pajak (DPP = Nilai Kontrak × 100/111) dari PPN 11% dan menghitung potongan PPh bendahara.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-dot"></div>
+          <h3>Deteksi Ambang 80% HPS</h3>
+          <p>Memberi peringatan otomatis apabila nilai penawaran mendekati atau turun di bawah batas evaluasi kewajaran harga 80% HPS.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-dot"></div>
+          <h3>Nama Domain B2B Terbaik</h3>
+          <p>Kata tunggal 'tender.biz.id' sangat otoritatif untuk portal notifikasi proyek pengadaan nasional dan direktori vendor.</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="section" id="riset-pilar">
+      <div class="section-header">
+        <span class="eyebrow">PUSTAKA RISET & ARTIKEL PILAR SEO</span>
+        <h2>Panduan & Analisis Mendalam Tender & Pengadaan B2B</h2>
+        <p>Referensi terstruktur untuk mendukung pengambilan keputusan finansial, teknis, dan bisnis Anda.</p>
+      </div>
+      <div class="articles-grid">
+        
+        <article class="article-card" id="cara-menghitung-penawaran-wajar-dan-batas-80-persen-hps-lpse">
+          <div class="article-meta">
+            <span class="article-tag">B2B Category-Killer</span>
+            <span class="article-time">⏱ 6 menit baca</span>
+          </div>
+          <h3>Cara Menghitung Evaluasi Kewajaran Harga (Batas 80% HPS) pada Tender Pemerintah</h3>
+          <p>Persiapan dokumen analisis harga satuan dan bukti dukung kewajaran biaya apabila penawaran terkoreksi berada di bawah 80% HPS.</p>
+          <div class="article-footer">
+            <span>Terverifikasi Tim Riset Tender & Pengadaan B2B</span>
+            <a href="#micro-tool" class="article-cta">Coba Simulator →</a>
+          </div>
+        </article>
+        
+        <article class="article-card" id="rumus-dpp-ppn-11-persen-dan-pph-pasal-22-pengadaan-barang">
+          <div class="article-meta">
+            <span class="article-tag">B2B Category-Killer</span>
+            <span class="article-time">⏱ 5 menit baca</span>
+          </div>
+          <h3>Rumus Cepat Memisahkan DPP, PPN 11%, dan PPh Pasal 22/23 pada Kontrak Pengadaan</h3>
+          <p>Menghindari kesalahan estimasi arus kas proyek akibat lupa memperhitungkan pemungutan pajak di muka oleh bendahara instansi.</p>
+          <div class="article-footer">
+            <span>Terverifikasi Tim Riset Tender & Pengadaan B2B</span>
+            <a href="#micro-tool" class="article-cta">Coba Simulator →</a>
+          </div>
+        </article>
+        
+        <article class="article-card" id="strategi-meningkatkan-win-rate-tender-b2b-dan-e-katalog">
+          <div class="article-meta">
+            <span class="article-tag">B2B Category-Killer</span>
+            <span class="article-time">⏱ 6 menit baca</span>
+          </div>
+          <h3>Strategi Meningkatkan Win-Rate Pengadaan B2B dan Optimasi Etalase E-Katalog</h3>
+          <p>Daftar periksa kualifikasi administrasi, pemenuhan tingkat komponen dalam negeri (TKDN), dan manajemen garansi purnajual.</p>
+          <div class="article-footer">
+            <span>Terverifikasi Tim Riset Tender & Pengadaan B2B</span>
+            <a href="#micro-tool" class="article-cta">Coba Simulator →</a>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>Jaringan 13 Properti Digital KakDiko Monorepo:</strong>
+      <div class="sister-grid">
+        <a href="../kakdiko.web.id/" title="KakDiko Digital Venture">kakdiko.web.id</a><a href="../ekuitas.biz.id/" title="Ekuitas Korporat & Valuasi">ekuitas.biz.id</a><a href="../ekuitas.web.id/" title="Pustaka Riset Ekuitas">ekuitas.web.id</a><a href="../ekuitas.my.id/" title="EkuitasKu Portfolio Rebalancer">ekuitas.my.id</a><a href="../dividen.biz.id/" title="Dividen IDX & Cashflow">dividen.biz.id</a><a href="../obligasi.biz.id/" title="Obligasi & Simulator SBN">obligasi.biz.id</a><a href="../ventura.web.id/" title="Ventura & Cap Table Lab">ventura.web.id</a><a href="../tender.biz.id/" title="Tender & Pengadaan B2B">tender.biz.id</a><a href="../kodelab.my.id/" title="KodeLab Sandbox">kodelab.my.id</a><a href="../kodelab.web.id/" title="KodeLab Cloud Architecture">kodelab.web.id</a><a href="../kanvasdigital.web.id/" title="KanvasDigital Studio">kanvasdigital.web.id</a><a href="../pustakaai.web.id/" title="PustakaAI Indonesia">pustakaai.web.id</a><a href="../karsastudio.biz.id/" title="Karsa Studio Digital">karsastudio.biz.id</a>
+      </div>
+      <p>© 2026 <strong>Tender & Pengadaan B2B (tender.biz.id)</strong> — Dikelola oleh <a href="../kakdiko.web.id/">Kak Diko</a> (<a href="mailto:dickynoko23@gmail.com">dickynoko23@gmail.com</a> | WA: <a href="https://wa.me/6282323965780">+6282323965780</a>) menggunakan Arsitektur AI-Driven Static Monorepo.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Akuisisi Domain / Kemitraan -->
+  <div class="modal-backdrop" id="acquire_modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Formulir Penawaran Akuisisi Domain</h3>
+        <button type="button" class="modal-close" onclick="closeAcquireModal()">×</button>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">
+        Kata tunggal 'Tender' dipadukan dengan ekstensi '.biz.id' adalah kombinasi B2B sempurna untuk agregator lelang, konsultan LPSE, atau SaaS e-Procurement.
+      </p>
+      <div class="input-group">
+        <label for="offer_name">Nama Lengkap Anda</label>
+        <input type="text" id="offer_name" placeholder="Contoh: Budi Santoso" />
+      </div>
+      <div class="input-group">
+        <label for="offer_org">Perusahaan / Instansi</label>
+        <input type="text" id="offer_org" placeholder="Contoh: PT Nusantara Kapital" />
+      </div>
+      <div class="input-group">
+        <label for="offer_price">Nominal Penawaran Akuisisi (Rp)</label>
+        <input type="number" id="offer_price" value="6000000" step="250000" />
+      </div>
+      <div class="input-group">
+        <label for="offer_notes">Pesan / Rencana Penggunaan</label>
+        <input type="text" id="offer_notes" value="Saya tertarik mengakuisisi tender.biz.id beserta kode micro-tool di dalamnya." />
+      </div>
+      <div class="cta-row" style="margin-top: 1.25rem;">
+        <button type="button" class="btn-primary" onclick="sendAcquisitionOffer('tender.biz.id', '6000000', '6282323965780', 'dickynoko23@gmail.com', 'wa')">
+          Kirim via WhatsApp
+        </button>
+        <button type="button" class="btn-outline" onclick="sendAcquisitionOffer('tender.biz.id', '6000000', '6282323965780', 'dickynoko23@gmail.com', 'email')">
+          Kirim via Email
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+function formatIDR(num) {
+  if (!isFinite(num)) return "Rp 0";
+  return "Rp " + Math.round(num).toLocaleString("id-ID");
+}
+
+function formatNum(num, decimals = 2) {
+  if (!isFinite(num)) return "0";
+  return Number(num).toLocaleString("id-ID", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: decimals
+  });
+}
+
+function runMicroTool(formulaId) {
+  const getVal = (id) => {
+    const el = document.getElementById("input_" + id);
+    return el ? parseFloat(el.value) || 0 : 0;
+  };
+
+  let cards = [];
+  let insight = "";
+  let healthPct = 75;
+
+  if (formulaId === "empire_roi") {
+    const count = getVal("domain_count");
+    const cost = getVal("acq_cost");
+    const visitors = getVal("avg_visitors");
+    const salePrice = getVal("avg_sale_price");
+    const sellRate = getVal("sell_through_rate") / 100;
+
+    const totalVisitorsYear = count * visitors * 12;
+    const expectedDomainsSold = Math.max(1, Math.round(count * sellRate));
+    const grossFlipRevenue = expectedDomainsSold * salePrice;
+    const totalPortfolioVal = count * salePrice;
+    const netRoiMultiple = cost > 0 ? (grossFlipRevenue - cost) / cost : 0;
+
+    cards = [
+      { label: "Valuasi Katalog Penuh", value: formatIDR(totalPortfolioVal), sub: count + " Domain Aktif" },
+      { label: "Proyeksi Penjualan Tahunan", value: formatIDR(grossFlipRevenue), sub: expectedDomainsSold + " Domain Terjual / Thn" },
+      { label: "Total Trafik Organik / Thn", value: formatNum(totalVisitorsYear, 0) + " UV", sub: formatNum(count * visitors, 0) + " UV / Bulan" },
+      { label: "Kelipatan ROI (Multiple)", value: formatNum(netRoiMultiple, 0) + "x Modal", sub: "Modal Awal: " + formatIDR(cost) }
+    ];
+    healthPct = Math.min(100, Math.max(20, sellRate * 180));
+    insight = `Dengan modal akuisisi ${formatIDR(cost)} untuk ${count} domain, terjualnya ${expectedDomainsSold} domain saja pada harga rata-rata ${formatIDR(salePrice)} menghasilkan arus kas ${formatIDR(grossFlipRevenue)} (${formatNum(netRoiMultiple, 0)}x lipat modal awal).`;
+  }
+  else if (formulaId === "equity_valuation") {
+    const price = getVal("stock_price");
+    const eps = getVal("eps");
+    const bvps = getVal("bvps");
+    const der = getVal("total_debt_ratio");
+
+    const per = eps > 0 ? price / eps : 0;
+    const pbv = bvps > 0 ? price / bvps : 0;
+    const roe = bvps > 0 ? (eps / bvps) * 100 : 0;
+    const grahamFair = (eps > 0 && bvps > 0) ? Math.sqrt(22.5 * eps * bvps) : 0;
+    const mos = grahamFair > 0 ? ((grahamFair - price) / grahamFair) * 100 : 0;
+
+    cards = [
+      { label: "Nilai Wajar Benjamin Graham", value: formatIDR(grahamFair), sub: mos >= 0 ? "Diskon (MoS): +" + formatNum(mos, 1) + "%" : "Premium: " + formatNum(mos, 1) + "%" },
+      { label: "Return on Equity (ROE)", value: formatNum(roe, 2) + "%", sub: roe >= 15 ? "Profitabilitas Unggul (>=15%)" : "Profitabilitas Moderat" },
+      { label: "Price to Earnings (PER)", value: formatNum(per, 2) + "x", sub: "EPS: " + formatIDR(eps) },
+      { label: "Price to Book Value (PBV)", value: formatNum(pbv, 2) + "x", sub: "DER Neraca: " + formatNum(der, 0) + "%" }
+    ];
+    healthPct = Math.min(100, Math.max(15, 50 + mos));
+    insight = mos > 15
+      ? `Saham berada di bawah nilai intrinsik Graham (${formatIDR(grahamFair)}) dengan Margin of Safety ${formatNum(mos, 1)}% dan ROE ${formatNum(roe, 1)}%. Layak masuk daftar pantau akumulasi.`
+      : `Harga pasar (${formatIDR(price)}) sudah mendekati atau melampaui estimasi Graham Number (${formatIDR(grahamFair)}). Pastikan pertumbuhan laba (EPS growth) mendukung valuasi premium ini.`;
+  }
+  else if (formulaId === "equity_cagr") {
+    const initial = getVal("initial_capital");
+    const monthly = getVal("monthly_topup");
+    const rate = getVal("annual_return") / 100;
+    const years = getVal("years");
+
+    const months = years * 12;
+    const monthlyRate = rate / 12;
+    const fvInitial = initial * Math.pow(1 + monthlyRate, months);
+    const fvSip = monthlyRate > 0 ? monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) : monthly * months;
+    const totalFv = fvInitial + fvSip;
+    const totalPrincipal = initial + (monthly * months);
+    const totalGain = totalFv - totalPrincipal;
+    const gainPct = totalPrincipal > 0 ? (totalGain / totalPrincipal) * 100 : 0;
+
+    cards = [
+      { label: "Nilai Akhir Portofolio", value: formatIDR(totalFv), sub: "Horizon " + years + " Tahun" },
+      { label: "Total Pokok Disetor", value: formatIDR(totalPrincipal), sub: "DCA: " + formatIDR(monthly) + "/bln" },
+      { label: "Keuntungan Bunga Majemuk", value: formatIDR(totalGain), sub: "+" + formatNum(gainPct, 1) + "% di atas Modal Pokok" },
+      { label: "Estimasi Return Bulanan di Akhir", value: formatIDR((totalFv * rate) / 12), sub: "Passive Yield @ " + formatNum(rate * 100, 1) + "% p.a." }
+    ];
+    healthPct = Math.min(100, Math.max(25, (totalGain / Math.max(1, totalFv)) * 100));
+    insight = `Dalam ${years} tahun, porsi hasil compounding mencapai ${formatIDR(totalGain)} (${formatNum((totalGain / Math.max(1, totalFv)) * 100, 1)}% dari total kekayaan akhir), membuktikan efek bola salju ekuitas.`;
+  }
+  else if (formulaId === "rebalance_calc") {
+    const eq = getVal("current_equity");
+    const fix = getVal("current_fixed");
+    const targetEqPct = getVal("target_equity_pct") / 100;
+    const cashIn = getVal("new_cash_injection");
+
+    const currentTotal = eq + fix;
+    const newTotal = currentTotal + cashIn;
+    const currentEqWeight = currentTotal > 0 ? (eq / currentTotal) * 100 : 0;
+    const targetEqAmount = newTotal * targetEqPct;
+    const targetFixAmount = newTotal * (1 - targetEqPct);
+    const deltaEq = targetEqAmount - eq;
+    const deltaFix = targetFixAmount - fix;
+
+    cards = [
+      { label: "Total Portofolio Baru", value: formatIDR(newTotal), sub: "Bobot Saat Ini: " + formatNum(currentEqWeight, 1) + "% Ekuitas" },
+      { label: "Target Ideal Ekuitas", value: formatIDR(targetEqAmount), sub: "Target Bobot: " + formatNum(targetEqPct * 100, 0) + "%" },
+      { label: "Aksi pada Ekuitas (Saham)", value: (deltaEq >= 0 ? "Beli " : "Jual ") + formatIDR(Math.abs(deltaEq)), sub: deltaEq >= 0 ? "Tambah Akumulasi Saham" : "Amankan Profit (Trimming)" },
+      { label: "Aksi pada Obligasi / Kas", value: (deltaFix >= 0 ? "Tambah " : "Kurangi ") + formatIDR(Math.abs(deltaFix)), sub: "Target Defensif: " + formatIDR(targetFixAmount) }
+    ];
+    healthPct = Math.max(20, 100 - Math.abs(currentEqWeight - targetEqPct * 100) * 2);
+    insight = deltaEq >= 0
+      ? `Untuk mencapai bobot ideal ${formatNum(targetEqPct * 100, 0)}% ekuitas, alokasikan ${formatIDR(deltaEq)} ke saham dan ${formatIDR(deltaFix)} ke instrumen pendapatan tetap/kas.`
+      : `Porsi saham Anda saat ini (${formatNum(currentEqWeight, 1)}%) melebihi target (${formatNum(targetEqPct * 100, 0)}%). Lakukan profit-taking saham sebesar ${formatIDR(Math.abs(deltaEq))} dan pindahkan ke instrumen defensif.`;
+  }
+  else if (formulaId === "dividend_calc") {
+    const lots = getVal("lots");
+    const shares = lots * 100;
+    const buyPrice = getVal("avg_buy_price");
+    const dps = getVal("dps");
+    const taxRate = getVal("tax_rate") / 100;
+
+    const capitalInvested = shares * buyPrice;
+    const grossDiv = shares * dps;
+    const taxAmount = grossDiv * taxRate;
+    const netDiv = grossDiv - taxAmount;
+    const grossYield = buyPrice > 0 ? (dps / buyPrice) * 100 : 0;
+    const netYield = buyPrice > 0 ? ((dps * (1 - taxRate)) / buyPrice) * 100 : 0;
+    const drip5Years = capitalInvested * Math.pow(1 + (netYield / 100), 5);
+
+    cards = [
+      { label: "Dividen Bersih Diterima / Thn", value: formatIDR(netDiv), sub: "Setara " + formatIDR(netDiv / 12) + " / bulan" },
+      { label: "Net Dividend Yield", value: formatNum(netYield, 2) + "%", sub: "Gross Yield: " + formatNum(grossYield, 2) + "%" },
+      { label: "Potongan Pajak PPh Dividen", value: formatIDR(taxAmount), sub: taxRate === 0 ? "Bebas Pajak (PMK Reinvestasi)" : "PPh Final " + formatNum(taxRate * 100, 0) + "%" },
+      { label: "Proyeksi DRIP 5 Tahun", value: formatIDR(drip5Years), sub: "Modal Pokok: " + formatIDR(capitalInvested) }
+    ];
+    healthPct = Math.min(100, Math.max(20, netYield * 10));
+    insight = `Dari ${formatNum(lots, 0)} lot (${formatNum(shares, 0)} lembar), Anda mengantongi dividen bersih ${formatIDR(netDiv)}/tahun (Net Yield ${formatNum(netYield, 2)}%). Jika digulung kembali (DRIP), modal ${formatIDR(capitalInvested)} tumbuh menjadi ${formatIDR(drip5Years)} dalam 5 tahun.`;
+  }
+  else if (formulaId === "bond_calc") {
+    const principal = getVal("principal");
+    const couponRate = getVal("coupon_rate") / 100;
+    const depoRate = getVal("deposito_rate") / 100;
+    const tenor = getVal("tenor_years");
+
+    const grossAnnualBond = principal * couponRate;
+    const netAnnualBond = grossAnnualBond * 0.90; // Pajak SBN/Obligasi 10%
+    const netMonthlyBond = netAnnualBond / 12;
+
+    const netAnnualDepo = (principal * depoRate) * 0.80; // Pajak Deposito 20%
+    const diffAnnual = netAnnualBond - netAnnualDepo;
+    const totalCouponTenor = netAnnualBond * tenor;
+
+    cards = [
+      { label: "Kupon Bersih / Bulan (SBN)", value: formatIDR(netMonthlyBond), sub: "Sudah Dipotong PPh 10%" },
+      { label: "Total Kupon Bersih / Tahun", value: formatIDR(netAnnualBond), sub: "Effective Net Yield: " + formatNum(couponRate * 90, 2) + "%" },
+      { label: "Keunggulan vs Deposito / Thn", value: "+" + formatIDR(diffAnnual), sub: "Deposito Bersih: " + formatIDR(netAnnualDepo) + "/thn" },
+      { label: "Akumulasi Kupon " + tenor + " Tahun", value: formatIDR(totalCouponTenor), sub: "+ Kembalinya Pokok " + formatIDR(principal) }
+    ];
+    healthPct = Math.min(100, Math.max(30, couponRate * 1200));
+    insight = `Dengan tarif pajak SBN yang hanya 10% (vs 20% pada deposito), Anda menerima cashflow pasif ${formatIDR(netMonthlyBond)} setiap bulan dan unggul ${formatIDR(diffAnnual)} per tahun dibanding deposito bank.`;
+  }
+  else if (formulaId === "vc_calc") {
+    const preMoney = getVal("pre_money") * 1000000;
+    const invest = getVal("investment_amount") * 1000000;
+    const founderPrior = getVal("founder_prior_pct");
+    const esopPct = getVal("esop_pool_pct");
+
+    const postMoney = preMoney + invest;
+    const investorPct = postMoney > 0 ? (invest / postMoney) * 100 : 0;
+    const retentionFactor = Math.max(0, (100 - investorPct - esopPct) / 100);
+    const founderPostPct = founderPrior * retentionFactor;
+    const founderEquityValue = postMoney * (founderPostPct / 100);
+
+    cards = [
+      { label: "Valuasi Post-Money", value: formatIDR(postMoney), sub: "Pre-Money: " + formatIDR(preMoney) },
+      { label: "Porsi Ekuitas Investor (VC)", value: formatNum(investorPct, 2) + "%", sub: "Suntikan: " + formatIDR(invest) },
+      { label: "Kepemilikan Founder Pasca-Ronde", value: formatNum(founderPostPct, 2) + "%", sub: "Turun dari " + formatNum(founderPrior, 1) + "% (+ESOP " + esopPct + "%)" },
+      { label: "Nilai Valuasi Saham Founder", value: formatIDR(founderEquityValue), sub: "Peningkatan Nilai Kertas Ekuitas" }
+    ];
+    healthPct = Math.min(100, Math.max(20, founderPostPct));
+    insight = `Pendanaan ${formatIDR(invest)} pada valuasi Pre-Money ${formatIDR(preMoney)} menghasilkan Post-Money ${formatIDR(postMoney)}. Investor memegang ${formatNum(investorPct, 2)}% dan kepemilikan founder terdilusi menjadi ${formatNum(founderPostPct, 2)}% (senilai ${formatIDR(founderEquityValue)}).`;
+  }
+  else if (formulaId === "tender_calc") {
+    const hps = getVal("hps_total");
+    const bidPct = getVal("bid_pct_hps") / 100;
+    const cogs = getVal("cogs_real");
+    const pphRate = getVal("pph_rate") / 100;
+
+    const bidGross = hps * bidPct;
+    const dpp = bidGross * (100 / 111); // PPN 11%
+    const ppn = bidGross - dpp;
+    const pph = dpp * pphRate;
+    const netCashReceived = dpp - pph;
+    const netProfit = netCashReceived - cogs;
+    const netMarginPct = dpp > 0 ? (netProfit / dpp) * 100 : 0;
+
+    cards = [
+      { label: "Nilai Penawaran Kontrak (Incl. PPN)", value: formatIDR(bidGross), sub: formatNum(bidPct * 100, 1) + "% dari Pagu HPS" },
+      { label: "Nilai DPP (Excl. PPN 11%)", value: formatIDR(dpp), sub: "PPN 11%: " + formatIDR(ppn) },
+      { label: "Kas Bersih Masuk (Setelah PPh)", value: formatIDR(netCashReceived), sub: "Potongan PPh: " + formatIDR(pph) },
+      { label: "Laba Bersih Kontraktor", value: formatIDR(netProfit), sub: "Net Margin: " + formatNum(netMarginPct, 2) + "% terhadap DPP" }
+    ];
+    healthPct = Math.min(100, Math.max(15, netMarginPct * 3));
+    const warn80 = (bidPct * 100) < 80 ? " [PERHATIAN: Penawaran di bawah 80% HPS wajib menyiapkan dokumen klarifikasi kewajaran harga!]" : " [Penawaran berada di zona aman >= 80% HPS]";
+    insight = `Setelah dipotong PPN 11% (${formatIDR(ppn)}) dan PPh (${formatIDR(pph)}), kas bersih yang diterima rekening vendor adalah ${formatIDR(netCashReceived)}, menghasilkan laba bersih ${formatIDR(netProfit)} (${formatNum(netMarginPct, 1)}%).` + warn80;
+  }
+  else if (formulaId === "payload_calc") {
+    const rawKb = getVal("json_kb");
+    const compPct = getVal("compression_pct") / 100;
+    const rps = getVal("avg_rps");
+    const priceGb = getVal("egress_price_gb");
+
+    const compressedKb = rawKb * (1 - compPct);
+    const monthlyRequests = rps * 86400 * 30;
+    const rawMonthlyGb = (monthlyRequests * rawKb) / (1024 * 1024);
+    const compMonthlyGb = (monthlyRequests * compressedKb) / (1024 * 1024);
+    const savedCostIdr = (rawMonthlyGb - compMonthlyGb) * priceGb;
+
+    cards = [
+      { label: "Ukuran Payload Terkompresi", value: formatNum(compressedKb, 2) + " KB", sub: "Dari Mentah " + formatNum(rawKb, 0) + " KB" },
+      { label: "Total Request / Bulan", value: formatNum(monthlyRequests / 1000000, 1) + " Juta", sub: "Trafik Konstan " + rps + " RPS" },
+      { label: "Bandwidth Bulanan (Brotli)", value: formatNum(compMonthlyGb, 1) + " GB", sub: "Tanpa Kompresi: " + formatNum(rawMonthlyGb, 1) + " GB" },
+      { label: "Penghematan Biaya Egress", value: formatIDR(savedCostIdr) + "/bln", sub: "Biaya Aktif: " + formatIDR(compMonthlyGb * priceGb) }
+    ];
+    healthPct = Math.min(100, Math.max(20, compPct * 110));
+    insight = `Kompresi Brotli/Gzip memangkas transfer data bulanan dari ${formatNum(rawMonthlyGb, 1)} GB menjadi ${formatNum(compMonthlyGb, 1)} GB pada beban ${rps} RPS, menghemat biaya bandwidth sebesar ${formatIDR(savedCostIdr)}/bulan.`;
+  }
+  else if (formulaId === "cloud_cost_calc") {
+    const reqMillions = getVal("monthly_requests_m");
+    const durationMs = getVal("avg_duration_ms");
+    const memMb = getVal("memory_mb");
+    const vpsIdr = getVal("vps_monthly_idr");
+
+    const totalReqs = reqMillions * 1000000;
+    const gbSeconds = totalReqs * (durationMs / 1000) * (memMb / 1024);
+    // Standard serverless pricing ~ $0.00001667 per GB-s + $0.20 per 1M reqs (converted @ Rp16.200)
+    const serverlessUsd = (gbSeconds * 0.00001667) + (reqMillions * 0.20);
+    const serverlessIdr = serverlessUsd * 16200;
+    const diffIdr = serverlessIdr - vpsIdr;
+
+    cards = [
+      { label: "Estimasi Tagihan Serverless", value: formatIDR(serverlessIdr) + "/bln", sub: formatNum(gbSeconds, 0) + " GB-seconds" },
+      { label: "Biaya Cluster VPS Dedikasi", value: formatIDR(vpsIdr) + "/bln", sub: "Biaya Tetap (Flat-Rate)" },
+      { label: "Selisih Efisiensi Bulanan", value: formatIDR(Math.abs(diffIdr)), sub: serverlessIdr < vpsIdr ? "Serverless Lebih Hemat" : "VPS Lebih Hemat" },
+      { label: "Rekomendasi Arsitektur", value: serverlessIdr <= vpsIdr ? "Gunakan Serverless" : "Migrasi ke VPS", sub: "Berdasarkan beban " + reqMillions + "M req/bln" }
+    ];
+    healthPct = serverlessIdr <= vpsIdr ? 88 : 65;
+    insight = serverlessIdr <= vpsIdr
+      ? `Pada volume ${reqMillions} juta request/bulan (${durationMs}ms), arsitektur Serverless (${formatIDR(serverlessIdr)}) masih lebih hemat ${formatIDR(Math.abs(diffIdr))} dibanding menyewa cluster VPS.`
+      : `Volume trafik Anda sudah melewati titik impas (break-even). Memindahkan beban kerja ke cluster VPS (${formatIDR(vpsIdr)}/bln) menghemat ${formatIDR(Math.abs(diffIdr))} setiap bulan.`;
+  }
+  else if (formulaId === "canvas_calc") {
+    const wCm = getVal("width_cm");
+    const hCm = getVal("height_cm");
+    const dpi = getVal("dpi");
+    const nodes = getVal("svg_nodes");
+
+    const wPx = Math.round((wCm / 2.54) * dpi);
+    const hPx = Math.round((hCm / 2.54) * dpi);
+    const megapixels = (wPx * hPx) / 1000000;
+    const rawRgbaMb = (wPx * hPx * 4) / (1024 * 1024);
+    const svgKb = Math.max(2, (nodes * 48) / 1024);
+
+    cards = [
+      { label: "Resolusi Piksel Eksak", value: formatNum(wPx, 0) + " × " + formatNum(hPx, 0) + " px", sub: "Total: " + formatNum(megapixels, 2) + " MP @ " + dpi + " DPI" },
+      { label: "Memori Kanvas Raster (RGBA)", value: formatNum(rawRgbaMb, 1) + " MB", sub: "Ukuran Bitmap Tak Terkompresi" },
+      { label: "Estimasi Ukuran Vektor SVG", value: formatNum(svgKb, 1) + " KB", sub: nodes + " Kurva Bézier / Path" },
+      { label: "Rasio Efisiensi Vektor", value: formatNum((rawRgbaMb * 1024) / svgKb, 0) + "x Lebih Ringan", sub: "Tajam Tanpa Batas Resolusi" }
+    ];
+    healthPct = 92;
+    insight = `Bidang ${wCm}×${hCm} cm pada ${dpi} DPI membutuhkan kanvas raster ${formatNum(wPx, 0)}×${formatNum(hPx, 0)} piksel (${formatNum(rawRgbaMb, 1)} MB RAM). Dengan konversi vektor SVG (${nodes} node), ukuran file turun drastis menjadi ~${formatNum(svgKb, 1)} KB.`;
+  }
+  else if (formulaId === "llm_calc") {
+    const daily = getVal("daily_prompts");
+    const inWords = getVal("avg_input_words");
+    const outWords = getVal("avg_output_words");
+    const usdRate = getVal("usd_rate");
+
+    const monthlyPrompts = daily * 30;
+    const inTokensM = (monthlyPrompts * inWords * 1.35) / 1000000;
+    const outTokensM = (monthlyPrompts * outWords * 1.35) / 1000000;
+
+    // Flash Tier (~$0.15/1M in, $0.60/1M out) vs Flagship Pro Tier (~$2.50/1M in, $10.00/1M out)
+    const flashCostIdr = ((inTokensM * 0.15) + (outTokensM * 0.60)) * usdRate;
+    const proCostIdr = ((inTokensM * 2.50) + (outTokensM * 10.00)) * usdRate;
+    const hybridCostIdr = (flashCostIdr * 0.85) + (proCostIdr * 0.15);
+
+    cards = [
+      { label: "Volume Token Bulanan", value: formatNum(inTokensM + outTokensM, 2) + " Juta Token", sub: "In: " + formatNum(inTokensM, 1) + "M | Out: " + formatNum(outTokensM, 1) + "M" },
+      { label: "Biaya Model Tier Flash", value: formatIDR(flashCostIdr) + "/bln", sub: "Eksekusi Cepat & Massal" },
+      { label: "Biaya Model Tier Flagship", value: formatIDR(proCostIdr) + "/bln", sub: "Deep Reasoning Penuh" },
+      { label: "Biaya Multi-Model Routing (85/15)", value: formatIDR(hybridCostIdr) + "/bln", sub: "Hemat " + formatIDR(proCostIdr - hybridCostIdr) + "/bln" }
+    ];
+    healthPct = 90;
+    insight = `Dengan merutekan 85% tugas rutin ke model kelas Flash dan 15% tugas arsitektur kompleks ke model Flagship, biaya API bulanan Anda hanya ${formatIDR(hybridCostIdr)} (hemat ${formatIDR(proCostIdr - hybridCostIdr)} dibanding memakai model Flagship terus-menerus).`;
+  }
+  else if (formulaId === "agency_calc") {
+    const screens = getVal("screens_count");
+    const apis = getVal("api_integrations");
+    const rate = getVal("hourly_rate");
+    const urgency = getVal("urgency_factor");
+
+    const uiHours = screens * 10;
+    const apiHours = apis * 18;
+    const qaPmHours = Math.round((uiHours + apiHours) * 0.25);
+    const totalHours = uiHours + apiHours + qaPmHours;
+    const estWeeks = Math.max(2, Math.ceil((totalHours / 35) / urgency));
+    const totalCost = totalHours * rate * urgency;
+
+    cards = [
+      { label: "Estimasi Investasi Proyek", value: formatIDR(totalCost), sub: "Termasuk QA, Deployment & Dokumentasi" },
+      { label: "Total Beban Kerja Engineering", value: formatNum(totalHours, 0) + " Jam Kerja", sub: "UI/FE: " + uiHours + "j | Backend/API: " + apiHours + "j" },
+      { label: "Estimasi Durasi Pengerjaan", value: estWeeks + " Minggu", sub: "Faktor Akselerasi: " + urgency + "x" },
+      { label: "Termin Pembayaran Awal (DP 40%)", value: formatIDR(totalCost * 0.4), sub: "Pelunasan Bertahap per Milestone" }
+    ];
+    healthPct = 85;
+    insight = `Proyek dengan ${screens} modul antarmuka dan ${apis} integrasi eksternal membutuhkan sekitar ${totalHours} jam kerja engineering (~${estWeeks} minggu) dengan nilai kontrak ${formatIDR(totalCost)}.`;
+  }
+
+  const gridEl = document.getElementById("tool_results_grid");
+  if (gridEl) {
+    gridEl.innerHTML = cards.map(c => `
+      <div class="result-card">
+        <div class="result-label">${c.label}</div>
+        <div class="result-value">${c.value}</div>
+        <div class="result-sub">${c.sub}</div>
+      </div>
+    `).join("");
+  }
+
+  const insightEl = document.getElementById("tool_insight_box");
+  if (insightEl) {
+    insightEl.innerHTML = `
+      <div class="insight-header">
+        <span>Analisis Otomatis & Rekomendasi Eksekusi</span>
+        <span class="insight-score">Skor Efisiensi: ${Math.round(healthPct)}/100</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width: ${Math.min(100, Math.max(10, Math.round(healthPct)))}%"></div>
+      </div>
+      <p class="insight-text">${insight}</p>
+    `;
+  }
+}
+
+function openAcquireModal() {
+  const m = document.getElementById("acquire_modal");
+  if (m) m.classList.add("active");
+}
+
+function closeAcquireModal() {
+  const m = document.getElementById("acquire_modal");
+  if (m) m.classList.remove("active");
+}
+
+function sendAcquisitionOffer(domainName, defaultPrice, waNumber, emailAddr, via) {
+  const buyerName = (document.getElementById("offer_name")?.value || "Calon Pembeli").trim();
+  const buyerOrg = (document.getElementById("offer_org")?.value || "Perusahaan / Individu").trim();
+  const offerAmount = (document.getElementById("offer_price")?.value || defaultPrice).trim();
+  const notes = (document.getElementById("offer_notes")?.value || "Tertarik mengakuisisi hak kepemilikan domain beserta aplikasi micro-tool di dalamnya.").trim();
+
+  const msg = `Halo Kak Diko, saya ${buyerName} (${buyerOrg}). Saya mengajukan penawaran akuisisi untuk domain *${domainName}* dengan nominal *Rp ${Number(offerAmount).toLocaleString("id-ID")}*. Catatan: ${notes}`;
+
+  if (via === "wa") {
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+  } else {
+    const subj = `Penawaran Akuisisi Domain ${domainName} - ${buyerName}`;
+    window.location.href = `mailto:${emailAddr}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(msg)}`;
+  }
+}
+
+    document.addEventListener("DOMContentLoaded", function() {
+      runMicroTool("tender_calc");
+    });
+  </script>
+</body>
+</html>

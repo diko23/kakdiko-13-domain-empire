@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width. initial-scale=1.0" />
+  <title>Empire Command Center — 13-Domain AI-Driven Static Monorepo</title>
+  <style>
+    :root {
+      --bg: #050811;
+      --card: #0f172a;
+      --border: rgba(148. 163. 184. 0.18);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --green: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system. BlinkMacSystemFont. "Segoe UI". Roboto. Inter. sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+    .header {
+      background: linear-gradient(180deg. #0f172a. #050811);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1.25rem;
+    }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 1.25rem; }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 { font-size: clamp(1.8rem. 3.5vw. 2.6rem); margin: 0.4rem 0 0.75rem; font-weight: 800; }
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4. 1fr);
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    @media (max-width: 800px) { .stats-bar { grid-template-columns: repeat(2. 1fr); } }
+    .stat-box {
+      background: rgba(30. 41. 59. 0.55);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem;
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+    .stat-val { font-size: 1.45rem; font-weight: 800; color: var(--text); margin-top: 0.2rem; }
+    .stat-sub { font-size: 0.76rem; color: var(--green); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3. 1fr);
+      gap: 1.25rem;
+      margin-top: 2.2rem;
+    }
+    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2. 1fr); } }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+    .cc-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.9rem;
+    }
+    .cc-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; }
+    .cc-logo-wrap { display: flex; align-items: center; gap: 0.75rem; }
+    .cc-index { font-size: 0.72rem; color: var(--muted); display: block; }
+    .cc-card h3 a { color: var(--text); text-decoration: none; font-size: 1.12rem; font-family: monospace; }
+    .cc-card h3 a:hover { color: var(--accent); }
+    .cc-cat {
+      font-size: 0.7rem;
+      background: rgba(255.255.255.0.06);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .cc-brand { font-size: 0.88rem; color: var(--muted); }
+    .cc-tool-box {
+      background: rgba(2. 6. 23. 0.55);
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+    }
+    .cc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+    .cc-price { font-weight: 700; color: var(--green); }
+    .cc-btn {
+      background: var(--accent);
+      color: #020617;
+      font-weight: 700;
+      padding: 0.38rem 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <span class="eyebrow">AI-DRIVEN STATIC MONOREPO • COMMAND CENTER</span>
+      <h1>Dashboard Kendali 13 Domain & Micro-SaaS (Kak Diko)</h1>
+      <p style="color: var(--muted); max-width: 780px;">
+        Satu repositori statis melayani 13 custom domain melalui Cloudflare Pages Edge Router (<code>_worker.js</code>) dengan 13 kalkulator interaktif mandiri dan artikel SEO terstruktur.
+      </p>
+      <div class="stats-bar">
+        <div class="stat-box">
+          <div class="stat-label">Total Properti Aktif</div>
+          <div class="stat-val">13 Domain</div>
+          <div class="stat-sub">100% Terverifikasi RDAP PANDI</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Modal Akuisisi Promo</div>
+          <div class="stat-val">Rp 2.600</div>
+          <div class="stat-sub">@ Rp 200 / Domain (Tahun 1)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Total Valuasi Katalog Akuisisi</div>
+          <div class="stat-val">Rp 47.300.000</div>
+          <div class="stat-sub">Termasuk Paket Bundle Ekuitas & KodeLab</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Biaya Server / Hosting Bulanan</div>
+          <div class="stat-val">Rp 0 / bln</div>
+          <div class="stat-sub">Cloudflare Pages Multi-Domain Edge</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      
+        <div class="cc-card" style="border-top: 4px solid #38bdf8">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="KakDiko Digital Venture Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <polygon points="32.6 54.19 54.45 32.58 10.45 10.19" fill="none" stroke="#38bdf8" stroke-width="3.5"/>
+            <circle cx="32" cy="32" r="8" fill="#22d3ee"/>
+            <line x1="32" y1="6" x2="32" y2="24" stroke="#22d3ee" stroke-width="2.5"/>
+            <line x1="54" y1="19" x2="39" y2="28" stroke="#22d3ee" stroke-width="2.5"/>
+            <line x1="54" y1="45" x2="39" y2="36" stroke="#22d3ee" stroke-width="2.5"/>
+            <line x1="32" y1="58" x2="32" y2="40" stroke="#22d3ee" stroke-width="2.5"/>
+            <line x1="10" y1="45" x2="25" y2="36" stroke="#22d3ee" stroke-width="2.5"/>
+            <line x1="10" y1="19" x2="25" y2="28" stroke="#22d3ee" stroke-width="2.5"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#01 • Core Portfolio</span>
+                <h3><a href="./kakdiko.web.id/">kakdiko.web.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Personal Hub</span>
+          </div>
+          <p class="cc-brand">KakDiko Digital Venture — Full-Stack AI Engineer. Digital Asset Architect & Venture Builder</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Simulator Valuasi & ROI Portofolio Domain Digital
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Hub Kemitraan & Konsultasi</span>
+            <a href="./kakdiko.web.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #10b981">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Ekuitas Korporat & Valuasi Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#10b981" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <rect x="10" y="34" width="9" height="20" rx="2" fill="#10b981" opacity="0.7"/>
+            <rect x="23" y="24" width="9" height="30" rx="2" fill="#10b981" opacity="0.85"/>
+            <rect x="36" y="14" width="9" height="40" rx="2" fill="#34d399"/>
+            <polyline points="12.26 27.16 41.10 54.6" fill="none" stroke="#34d399" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="54" cy="6" r="4" fill="#10b981"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#02 • Tier-1 Single-Word Asset</span>
+                <h3><a href="./ekuitas.biz.id/">ekuitas.biz.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Financial Category-Killer</span>
+          </div>
+          <p class="cc-brand">Ekuitas Korporat & Valuasi — Platform Analisis Ekuitas. Struktur Modal & Valuasi Fundamental Perusahaan</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Valuasi Ekuitas & Nilai Wajar Saham (Graham Number)
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 9.500.000 (Termasuk .biz.id + .web.id + .my.id)</span>
+            <a href="./ekuitas.biz.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #14b8a6">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Pustaka Riset Ekuitas Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#14b8a6" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <path d="M8.52 L56.52" stroke="#14b8a6" stroke-width="3" stroke-linecap="round"/>
+            <path d="M10.44 Q24.40 32.26 T54.10" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+            <path d="M10.44 Q24.40 32.26 T54.10 L54.52 L10.52 Z" fill="#14b8a6" opacity="0.22"/>
+            <circle cx="32" cy="26" r="4" fill="#2dd4bf"/>
+            <circle cx="54" cy="10" r="4.5" fill="#14b8a6"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#03 • Tier-1 Single-Word Asset</span>
+                <h3><a href="./ekuitas.web.id/">ekuitas.web.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Financial Category-Killer</span>
+          </div>
+          <p class="cc-brand">Pustaka Riset Ekuitas — Portal Edukasi Pasar Modal. Riset Saham & Simulasi Pertumbuhan CAGR</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Simulator Compounding Ekuitas & DCA Bulanan (CAGR)
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 9.500.000 (Paket .biz.id + .web.id + .my.id)</span>
+            <a href="./ekuitas.web.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #06b6d4">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="EkuitasKu Portfolio Rebalancer Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#06b6d4" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <circle cx="30" cy="34" r="20" fill="none" stroke="#06b6d4" stroke-width="5"/>
+            <path d="M30.34 L30.14 A20.20 0 0.1 50.34 Z" fill="#22d3ee"/>
+            <path d="M34.30 L34.10 A20.20 0 0.1 54.30 Z" fill="#06b6d4" opacity="0.85"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#04 • Tier-1 Single-Word Asset</span>
+                <h3><a href="./ekuitas.my.id/">ekuitas.my.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Financial Category-Killer</span>
+          </div>
+          <p class="cc-brand">EkuitasKu Portfolio Rebalancer — Asisten Alokasi Aset & Rebalancing Portofolio Ekuitas Investor Mandiri</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Rebalancing Portofolio (Ekuitas vs Kas/Obligasi)
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 9.500.000 (Paket .biz.id + .web.id + .my.id)</span>
+            <a href="./ekuitas.my.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #22c55e">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Dividen IDX & Cashflow Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#22c55e" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <circle cx="32" cy="32" r="22" fill="none" stroke="#22c55e" stroke-width="3.5"/>
+            <path d="M26.22 C26.18 38.18 38.24 C38.29 25.29 25.36 C25.42 38.42 38.37" fill="none" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="32" y1="15" x2="32" y2="49" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/>
+            <polyline points="44.14 52.14 52.22" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#05 • Tier-1 Single-Word Asset</span>
+                <h3><a href="./dividen.biz.id/">dividen.biz.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Financial Category-Killer</span>
+          </div>
+          <p class="cc-brand">Dividen IDX & Cashflow — Kalkulator Dividend Yield. Pajak Dividen & Simulasi DRIP Pasar Modal Indonesia</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Dividend Yield Bersih & Simulasi DRIP Saham BEI
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 6.500.000 (Domain 1-Kata .biz.id + Kalkulator Aktif)</span>
+            <a href="./dividen.biz.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #eab308">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Obligasi & Simulator SBN Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#eab308" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <rect x="10" y="14" width="44" height="36" rx="5" fill="none" stroke="#eab308" stroke-width="3.5"/>
+            <circle cx="32" cy="32" r="9" fill="none" stroke="#facc15" stroke-width="3"/>
+            <line x1="16" y1="22" x2="22" y2="22" stroke="#facc15" stroke-width="3" stroke-linecap="round"/>
+            <line x1="42" y1="22" x2="48" y2="22" stroke="#facc15" stroke-width="3" stroke-linecap="round"/>
+            <line x1="16" y1="42" x2="22" y2="42" stroke="#facc15" stroke-width="3" stroke-linecap="round"/>
+            <line x1="42" y1="42" x2="48" y2="42" stroke="#facc15" stroke-width="3" stroke-linecap="round"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#06 • Tier-1 Single-Word Asset</span>
+                <h3><a href="./obligasi.biz.id/">obligasi.biz.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Financial Category-Killer</span>
+          </div>
+          <p class="cc-brand">Obligasi & Simulator SBN — Kalkulator Kupon SBN. ORI. Sukuk Ritel & Obligasi Negara FR Indonesia</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Simulator Kupon Bersih Bulanan SBN / Obligasi Negara vs Deposito
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 6.500.000 (Domain 1-Kata .biz.id + Simulator SBN)</span>
+            <a href="./obligasi.biz.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #a855f7">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Ventura & Cap Table Lab Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#a855f7" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <path d="M32.8 L46.28 L38.28 L38.50 L26.50 L26.28 L18.28 Z" fill="none" stroke="#c084fc" stroke-width="3.5" stroke-linejoin="round"/>
+            <circle cx="32" cy="22" r="3.5" fill="#a855f7"/>
+            <line x1="22" y1="56" x2="42" y2="56" stroke="#a855f7" stroke-width="3.5" stroke-linecap="round"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#07 • Tier-1 Single-Word Asset</span>
+                <h3><a href="./ventura.web.id/">ventura.web.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Financial Category-Killer</span>
+          </div>
+          <p class="cc-brand">Ventura & Cap Table Lab — Portal Modal Ventura. Valuasi Startup & Simulasi Dilusi Saham Founder</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Simulator Valuasi Pre/Post-Money & Dilusi Cap Table Startup
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 5.500.000 (Satu-satunya Ekstensi Tersisa untuk Kata 'Ventura')</span>
+            <a href="./ventura.web.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #f97316">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Tender & Pengadaan B2B Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#f97316" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <rect x="12" y="10" width="34" height="44" rx="4" fill="none" stroke="#f97316" stroke-width="3.5"/>
+            <line x1="20" y1="22" x2="38" y2="22" stroke="#fb923c" stroke-width="3" stroke-linecap="round"/>
+            <line x1="20" y1="31" x2="38" y2="31" stroke="#fb923c" stroke-width="3" stroke-linecap="round"/>
+            <polyline points="20.41 25.46 36.36" fill="none" stroke="#fb923c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#08 • Tier-1 Single-Word Asset</span>
+                <h3><a href="./tender.biz.id/">tender.biz.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">B2B Category-Killer</span>
+          </div>
+          <p class="cc-brand">Tender & Pengadaan B2B — Kalkulator HPS Pengadaan. Pajak Kontrak (PPN/PPh) & Margin Bersih Vendor</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Penawaran HPS Tender. Pajak Kontrak & Margin Bersih Vendor
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 6.000.000 (Domain 1-Kata .biz.id + Kalkulator HPS)</span>
+            <a href="./tender.biz.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #6366f1">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="KodeLab Sandbox Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <polyline points="22.20 10.32 22.44" fill="none" stroke="#6366f1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="42.20 54.32 42.44" fill="none" stroke="#6366f1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="36" y1="14" x2="28" y2="50" stroke="#818cf8" stroke-width="3.5" stroke-linecap="round"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#09 • Tier-2 Brand Bundle</span>
+                <h3><a href="./kodelab.my.id/">kodelab.my.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Tech & Developer</span>
+          </div>
+          <p class="cc-brand">KodeLab Sandbox — Laboratorium Utilitas Developer. Inspector Payload & Eksperimen Kode</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Bandwidth API. Kompresi Brotli & Latensi Respons
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 3.500.000 (Paket Dual-Domain kodelab.my.id + kodelab.web.id)</span>
+            <a href="./kodelab.my.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #3b82f6">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="KodeLab Cloud Architecture Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#3b82f6" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <rect x="10" y="12" width="44" height="14" rx="3" fill="none" stroke="#3b82f6" stroke-width="3"/>
+            <rect x="10" y="36" width="44" height="14" rx="3" fill="none" stroke="#60a5fa" stroke-width="3"/>
+            <circle cx="18" cy="19" r="2.5" fill="#60a5fa"/>
+            <circle cx="18" cy="43" r="2.5" fill="#3b82f6"/>
+            <line x1="28" y1="19" x2="46" y2="19" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+            <line x1="28" y1="43" x2="46" y2="43" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#10 • Tier-2 Brand Bundle</span>
+                <h3><a href="./kodelab.web.id/">kodelab.web.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Tech & Developer</span>
+          </div>
+          <p class="cc-brand">KodeLab Cloud Architecture — Portal Rekayasa Perangkat Lunak. Cloud FinOps & Kalkulator Infrastruktur</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Simulator Break-Even Biaya Serverless vs Cluster VPS
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 3.500.000 (Paket Dual-Domain kodelab.my.id + kodelab.web.id)</span>
+            <a href="./kodelab.web.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #ec4899">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="KanvasDigital Studio Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#ec4899" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <path d="M12.48 L32.12 L52.48 Z" fill="none" stroke="#ec4899" stroke-width="3.5" stroke-linejoin="round"/>
+            <circle cx="32" cy="34" r="7" fill="#f472b6" opacity="0.85"/>
+            <circle cx="48" cy="18" r="5" fill="none" stroke="#f472b6" stroke-width="3"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#11 • Tier-3 Niche Portal</span>
+                <h3><a href="./kanvasdigital.web.id/">kanvasdigital.web.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Creative & AI</span>
+          </div>
+          <p class="cc-brand">KanvasDigital Studio — Studio Desain Vektor. Audit Kontras WCAG 2.1 & Sistem Palet UI Modern</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Resolusi Kanvas. DPI Cetak & Estimasi Ukuran File Aset
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 2.750.000 (Termasuk Desain & Micro-Tool Kreatif)</span>
+            <a href="./kanvasdigital.web.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #8b5cf6">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="PustakaAI Indonesia Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#8b5cf6" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <path d="M32.8 L37.25 L54.30 L37.35 L32.52 L27.35 L10.30 L27.25 Z" fill="none" stroke="#a78bfa" stroke-width="3.5" stroke-linejoin="round"/>
+            <circle cx="32" cy="30" r="4" fill="#8b5cf6"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#12 • Tier-3 Niche Portal</span>
+                <h3><a href="./pustakaai.web.id/">pustakaai.web.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Creative & AI</span>
+          </div>
+          <p class="cc-brand">PustakaAI Indonesia — Direktori Arsitektur Prompt 8-Komponen & Kalkulator Token Multi-LLM</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Biaya Token API Multi-LLM & Estimasi Konteks
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 3.250.000 (Termasuk Kalkulator Token & Pustaka Prompt)</span>
+            <a href="./pustakaai.web.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+        <div class="cc-card" style="border-top: 4px solid #f43f5e">
+          <div class="cc-card-top">
+            <div class="cc-logo-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="Karsa Studio Digital Logo">
+  <rect width="64" height="64" rx="14" fill="#0f172a" stroke="#f43f5e" stroke-opacity="0.35" stroke-width="1.5"/>
+  
+            <rect x="12" y="12" width="18" height="18" rx="4" fill="none" stroke="#f43f5e" stroke-width="3.5"/>
+            <rect x="34" y="12" width="18" height="18" rx="4" fill="#fb7185" opacity="0.85"/>
+            <rect x="12" y="34" width="18" height="18" rx="4" fill="#f43f5e" opacity="0.4"/>
+            <rect x="34" y="34" width="18" height="18" rx="4" fill="none" stroke="#fb7185" stroke-width="3.5"/>
+        
+</svg>
+              <div>
+                <span class="cc-index">#13 • Tier-2 Brand Bundle</span>
+                <h3><a href="./karsastudio.biz.id/">karsastudio.biz.id</a></h3>
+              </div>
+            </div>
+            <span class="cc-cat">Tech & Developer</span>
+          </div>
+          <p class="cc-brand">Karsa Studio Digital — Agensi Rekayasa Produk Digital. Otomasi AI & Studio Pengembangan Web B2B</p>
+          <div class="cc-tool-box">
+            <strong>🛠 Micro-Tool:</strong> Kalkulator Estimasi Biaya & Durasi Pengembangan Proyek Digital
+          </div>
+          <div class="cc-footer">
+            <span class="cc-price">Rp 3.800.000 (Brand Agensi B2B + Estimator Proyek Interaktif)</span>
+            <a href="./karsastudio.biz.id/" class="cc-btn">Buka Situs →</a>
+          </div>
+        </div>
+        
+    </div>
+  </main>
+</body>
+</html>

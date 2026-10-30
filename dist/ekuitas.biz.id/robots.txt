@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ekuitas.biz.id/sitemap.xml

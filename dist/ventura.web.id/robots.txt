@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ventura.web.id/sitemap.xml

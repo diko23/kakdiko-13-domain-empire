@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dividen.biz.id/sitemap.xml
