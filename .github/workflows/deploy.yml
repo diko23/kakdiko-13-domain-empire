@@ -33,6 +33,9 @@ jobs:
       - name: Run Deterministic Verification Suite
         run: python test_monorepo.py
 
+      - name: Prepare Root Index for GitHub Pages
+        run: cp dist/command-center/index.html dist/index.html
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
 

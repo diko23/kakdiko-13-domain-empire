@@ -39,13 +39,15 @@ class MultiDomainRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(body)
             return
 
-        # Support Host-header routing just like Cloudflare _worker.js
+        # Support Host-header routing just like Cloudflare worker.js
         host = (self.headers.get("Host") or "").lower().split(":")[0]
         if host.startswith("www."):
             host = host[4:]
 
         if (DIST_DIR / host).is_dir() and not parsed.path.startswith(f"/{host}/"):
             self.path = f"/{host}{parsed.path}"
+        elif parsed.path in ("/", "/index.html"):
+            self.path = "/command-center/index.html"
 
         return super().do_GET()
 

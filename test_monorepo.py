@@ -38,8 +38,9 @@ class TestDomainEmpireMonorepo(unittest.TestCase):
         self.assertEqual(set(domains), set(EXPECTED_13_DOMAINS))
 
     def test_02_dist_artifacts_generated_for_all_13_domains(self):
-        self.assertTrue((DIST_DIR / "index.html").exists(), "Command Center index.html missing")
-        self.assertTrue((DIST_DIR / "_worker.js").exists(), "Cloudflare _worker.js missing")
+        self.assertTrue((DIST_DIR / "command-center" / "index.html").exists(), "Command Center index.html missing")
+        self.assertFalse((DIST_DIR / "_worker.js").exists(), "_worker.js must not be inside dist/ for Workers Assets")
+        self.assertTrue((BASE_DIR / "worker.js").exists(), "Root worker.js missing")
         self.assertTrue((BASE_DIR / "wrangler.toml").exists(), "wrangler.toml missing")
 
         for dom in EXPECTED_13_DOMAINS:

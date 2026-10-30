@@ -1595,8 +1595,8 @@ def build_command_center(manifest: dict) -> str:
 
 def build_cloudflare_worker(domains: list, primary_domain: str) -> str:
     domain_names = [d["domain"] for d in domains]
-    return f"""// Cloudflare Pages Advanced Mode (_worker.js)
-// Automatically routes 13 custom domains from a single static deployment based on the Host header.
+    return f"""// Cloudflare Workers with Static Assets (worker.js)
+// Automatically routes 13 custom domains from a single deployment based on the Host header.
 
 const KNOWN_DOMAINS = new Set({json.dumps(domain_names)});
 const DEFAULT_DOMAIN = "{primary_domain}";
@@ -1607,14 +1607,20 @@ export default {{
     const rawHost = (request.headers.get("host") || "").toLowerCase().split(":")[0];
     const cleanHost = rawHost.startsWith("www.") ? rawHost.slice(4) : rawHost;
 
-    // If accessed via one of the 13 custom domains on Cloudflare Pages:
+    // 1. If accessed via one of the 13 custom domains:
     if (KNOWN_DOMAINS.has(cleanHost)) {{
-      // Avoid double-prefixing if path already starts with /<domain>/
       if (!url.pathname.startsWith(`/${{cleanHost}}/`)) {{
-        const targetPath = url.pathname === "/" ? `/${{cleanHost}}/index.html` : `/${{cleanHost}}${{url.pathname}}`;
+        const subPath = (url.pathname === "/" || url.pathname === "") ? "/index.html" : url.pathname;
+        const targetPath = `/${{cleanHost}}${{subPath}}`;
         const rewrittenUrl = new URL(targetPath, url.origin);
         return env.ASSETS.fetch(new Request(rewrittenUrl.toString(), request));
       }}
+    }}
+
+    // 2. If accessed via *.workers.dev root (/), serve the Empire Command Center:
+    if (url.pathname === "/" || url.pathname === "/index.html") {{
+      const ccUrl = new URL("/command-center/index.html", url.origin);
+      return env.ASSETS.fetch(new Request(ccUrl.toString(), request));
     }}
 
     return env.ASSETS.fetch(request);
@@ -1678,18 +1684,25 @@ def build_all() -> dict:
         build_sitemap_and_robots(d_dir, d_cfg)
         built_domains.append(domain)
 
-    # Write Master Command Center at dist/index.html
-    (DIST_DIR / "index.html").write_text(build_command_center(manifest), encoding="utf-8")
+    # Write Master Command Center at dist/command-center/index.html
+    # (Keeping root of dist/ free of index.html ensures Cloudflare Workers always invokes worker.js on '/')
+    cc_dir = DIST_DIR / "command-center"
+    cc_dir.mkdir(parents=True, exist_ok=True)
+    (cc_dir / "index.html").write_text(build_command_center(manifest), encoding="utf-8")
 
-    # Write Cloudflare Pages Multi-Domain Edge Worker at dist/_worker.js
-    (DIST_DIR / "_worker.js").write_text(
+    # Write Cloudflare Worker script at repo root (worker.js) for `npx wrangler deploy`
+    (BASE_DIR / "worker.js").write_text(
         build_cloudflare_worker(domains, owner["primary_domain"]), encoding="utf-8"
     )
 
-    # Write wrangler.toml for 1-click Cloudflare Pages deploy
+    # Write wrangler.toml configured for Cloudflare Workers with Static Assets (`npx wrangler deploy`)
     wrangler_cfg = """name = "kakdiko-13-domain-empire"
-pages_build_output_dir = "dist"
-compatibility_date = "2026-10-01"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
 """
     (BASE_DIR / "wrangler.toml").write_text(wrangler_cfg, encoding="utf-8")
 
