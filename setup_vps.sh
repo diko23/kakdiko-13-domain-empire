@@ -85,6 +85,14 @@ chmod +x "$TARGET_DIR/keepalive_loop.sh"
 pkill -f "keepalive_loop.sh" 2>/dev/null || true
 nohup "$TARGET_DIR/keepalive_loop.sh" > /dev/null 2>&1 &
 
+# Auto-launch Web Dashboard inside InstaBox XFCE Desktop if X11 display is active
+for disp in ":0" ":1" ":10"; do
+    if DISPLAY="$disp" xset q &>/dev/null; then
+        nohup env DISPLAY="$disp" xdg-open "http://127.0.0.1:8080/" >/dev/null 2>&1 &
+        break
+    fi
+done
+
 echo -e "\n${GREEN}====================================================================${NC}"
 echo -e "${GREEN}[SUCCESS] INSTABOX AI WORKHORSE & 13-DOMAIN ENGINE AKTIF!${NC}"
 echo -e "${BLUE}====================================================================${NC}"
