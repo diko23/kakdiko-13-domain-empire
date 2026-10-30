@@ -7,3 +7,6 @@ workhorse.log
 keepalive_loop.sh
 cloudflared
 tunnel.log
+hermes_router.log
+hermes_tunnel.log
+vps_engine/data/router_telegram_config.json

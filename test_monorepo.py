@@ -178,6 +178,37 @@ class TestDomainEmpireMonorepo(unittest.TestCase):
             httpd.shutdown()
             httpd.server_close()
 
+    def test_07_hermes_9router_litellm_and_telegram_hub(self):
+        from vps_engine.hermes_router_node import HermesRouterHandler, ThreadedRouterServer
+
+        httpd = ThreadedRouterServer(("127.0.0.1", 0), HermesRouterHandler)
+        port = httpd.server_address[1]
+        server_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
+        server_thread.start()
+
+        try:
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}/v1/models", timeout=5) as rm:
+                self.assertEqual(rm.status, 200)
+                models = json.loads(rm.read().decode("utf-8"))
+                self.assertEqual(models["object"], "list")
+
+            chat_req = urllib.request.Request(
+                f"http://127.0.0.1:{port}/v1/chat/completions",
+                data=json.dumps({
+                    "model": "hermes-auto",
+                    "messages": [{"role": "user", "content": "Ping Hermes 9Router"}],
+                }).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(chat_req, timeout=10) as rc:
+                dc = json.loads(rc.read().decode("utf-8"))
+                self.assertEqual(dc["object"], "chat.completion")
+                self.assertIn("choices", dc)
+        finally:
+            httpd.shutdown()
+            httpd.server_close()
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
