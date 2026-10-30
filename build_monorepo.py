@@ -667,6 +667,40 @@ def build_domain_page(domain_cfg: dict, all_domains: list, owner: dict) -> str:
 
     default_price = acq["price_idr"] if acq["price_idr"] > 0 else 3500000
 
+    # Domain-contextual Monetization & Affiliate Bar inside Micro-Tool
+    wa_num = owner["whatsapp"]
+    if any(k in domain for k in ("ekuitas", "dividen", "obligasi", "ventura")):
+        monetize_title = "📈 Eksekusi Strategi Investasi & Charting Real-Time"
+        monetize_desc = f"Gunakan hasil kalkulasi {brand} untuk menyusun portofolio pada platform sekuritas resmi OJK atau pasang slot sponsor finansial eksklusif di halaman ini."
+        monetize_primary_label = "Charting Analitik Pro (TradingView)"
+        monetize_primary_url = f"https://www.tradingview.com/?utm_source={domain}&utm_medium=calculator_cta"
+        monetize_sec_label = "Pasang Iklan / Sponsor Finansial"
+    elif any(k in domain for k in ("pustakaai", "kodelab")):
+        monetize_title = "⚡ Optimalkan Biaya Infrastruktur Cloud & API Multi-LLM"
+        monetize_desc = f"Hemat hingga 60% pengeluaran token AI dan server produksi menggunakan arsitektur gateway {brand} serta kredit partner cloud global."
+        monetize_primary_label = "Konsultasi Setup AI Router / Cloud"
+        monetize_primary_url = f"https://wa.me/{wa_num}?text=Halo%20Kak%20Diko,%20saya%20tertarik%20akses%20AI%20Router%20/%20Arsitektur%20Cloud%20dari%20{domain}"
+        monetize_sec_label = "Sewa Slot Afiliasi SaaS"
+    else:
+        monetize_title = "🚀 Akselerasi Proyek B2B, Tender & Aset Vektor Komersial"
+        monetize_desc = f"Dapatkan kurasi peluang tender LPSE harian, paket aset SVG komersial siap jual (USD), atau bangun sistem web korporat bersama {brand}."
+        monetize_primary_label = "Pesan Layanan / Paket Aset Digital"
+        monetize_primary_url = f"https://wa.me/{wa_num}?text=Halo%20Kak%20Diko,%20saya%20ingin%20konsultasi%20layanan%20B2B%20/%20Aset%20Digital%20di%20{domain}"
+        monetize_sec_label = "Akuisisi Penuh Domain Ini"
+
+    monetize_bar_html = f"""
+    <div class="monetize-bar" style="margin-top:1.1rem;padding:1.1rem 1.25rem;border-radius:12px;background:linear-gradient(135deg, rgba(15,23,42,0.9), rgba(2,6,23,0.95));border:1px dashed var(--accent);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+      <div style="flex:1;min-width:240px;">
+        <div style="font-size:0.88rem;font-weight:800;color:var(--accent);margin-bottom:0.2rem;">{monetize_title}</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);">{monetize_desc}</div>
+      </div>
+      <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+        <a href="{monetize_primary_url}" target="_blank" rel="noopener" class="btn-primary" style="padding:0.5rem 0.95rem;font-size:0.8rem;">{monetize_primary_label} ↗</a>
+        <button type="button" class="btn-outline" style="padding:0.5rem 0.9rem;font-size:0.8rem;" onclick="openAcquireModal()">{monetize_sec_label}</button>
+      </div>
+    </div>
+    """
+
     return f"""<!DOCTYPE html>
 <html lang="id">
 <head>
@@ -1301,6 +1335,7 @@ def build_domain_page(domain_cfg: dict, all_domains: list, owner: dict) -> str:
         <div>
           <div class="results-grid" id="tool_results_grid"></div>
           <div class="insight-box" id="tool_insight_box"></div>
+          {monetize_bar_html}
         </div>
       </div>
     </section>

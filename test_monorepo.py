@@ -72,6 +72,7 @@ class TestDomainEmpireMonorepo(unittest.TestCase):
             # Verify zero placeholders
             self.assertNotIn("TODO", html)
             self.assertNotIn("lorem ipsum", html.lower())
+            self.assertIn("monetize-bar", html)
 
     def test_04_defensive_bundles_cross_linked(self):
         # Ekuitas 3-domain bundle check
@@ -121,6 +122,59 @@ class TestDomainEmpireMonorepo(unittest.TestCase):
                 self.assertEqual(resp.status, 200)
                 body = resp.read().decode("utf-8")
                 self.assertIn("Kalkulator Dividend Yield Bersih", body)
+        finally:
+            httpd.shutdown()
+            httpd.server_close()
+
+    def test_06_vps_workhorse_router_and_farming_engine(self):
+        from vps_engine.empire_workhorse import WorkhorseRequestHandler, init_db
+
+        init_db()
+        socketserver.TCPServer.allow_reuse_address = True
+        httpd = socketserver.TCPServer(("127.0.0.1", 0), WorkhorseRequestHandler)
+        port = httpd.server_address[1]
+        server_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
+        server_thread.start()
+
+        try:
+            # 1. Test Keep-Alive endpoint
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}/keepalive", timeout=5) as resp:
+                self.assertEqual(resp.status, 200)
+                ka = json.loads(resp.read().decode("utf-8"))
+                self.assertEqual(ka["status"], "ALIVE")
+
+            # 2. Test Multi-LLM AI Router & SQLite Cache Hit
+            chat_payload = json.dumps({"prompt": "Tes efisiensi dividen IDX 2026", "model": "auto"}).encode("utf-8")
+            req1 = urllib.request.Request(
+                f"http://127.0.0.1:{port}/api/v1/router/chat",
+                data=chat_payload,
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req1, timeout=10) as r1:
+                d1 = json.loads(r1.read().decode("utf-8"))
+                self.assertEqual(d1["status"], "success")
+
+            req2 = urllib.request.Request(
+                f"http://127.0.0.1:{port}/api/v1/router/chat",
+                data=chat_payload,
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req2, timeout=10) as r2:
+                d2 = json.loads(r2.read().decode("utf-8"))
+                self.assertTrue(d2["cached"], "Second identical prompt must be served from SQLite cache")
+
+            # 3. Test Vector Asset Pack Factory
+            vec_req = urllib.request.Request(
+                f"http://127.0.0.1:{port}/api/v1/farm/vectors",
+                data=json.dumps({"theme": "Unit Test Vector Pack"}).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(vec_req, timeout=10) as rv:
+                dv = json.loads(rv.read().decode("utf-8"))
+                self.assertEqual(dv["count"], 6)
         finally:
             httpd.shutdown()
             httpd.server_close()

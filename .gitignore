@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 .env
+vps_engine/data/*.db
+vps_engine/data/vector_packs/*.svg
+workhorse.log
+keepalive_loop.sh
