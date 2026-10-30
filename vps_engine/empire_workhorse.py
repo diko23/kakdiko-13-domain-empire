@@ -794,7 +794,6 @@ def render_dashboard_html() -> str:
       }});
       const data = await res.json();
       out.textContent = JSON.stringify(data, null, 2);
-      setTimeout(() => location.reload(), 1800);
     }}
 
     async function simulateLead() {{
@@ -814,7 +813,6 @@ def render_dashboard_html() -> str:
       }});
       const data = await res.json();
       out.textContent = JSON.stringify(data, null, 2);
-      setTimeout(() => location.reload(), 1200);
     }}
   </script>
 </body>
@@ -822,7 +820,17 @@ def render_dashboard_html() -> str:
 """
 
 
+class ThreadedWorkhorseServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
+    daemon_threads = True
+    allow_reuse_address = True
+
+
 class WorkhorseRequestHandler(http.server.BaseHTTPRequestHandler):
+    def address_string(self) -> str:
+        return str(self.client_address[0])
+
+    def log_message(self, format: str, *args) -> None:
+        pass
     def _send_json(self, payload: dict, status: int = 200) -> None:
         raw = json.dumps(payload, indent=2, ensure_ascii=False).encode("utf-8")
         self.send_response(status)
@@ -932,8 +940,7 @@ class WorkhorseRequestHandler(http.server.BaseHTTPRequestHandler):
 def run_server(host: str = "0.0.0.0", port: int = 8080) -> None:
     init_db()
     log_event("SYSTEM", "Empire Workhorse Started", f"Listening on {host}:{port}")
-    socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer((host, port), WorkhorseRequestHandler) as httpd:
+    with ThreadedWorkhorseServer((host, port), WorkhorseRequestHandler) as httpd:
         print(f"[OK] InstaBox AI Workhorse & Profit Engine active at http://{host}:{port}")
         httpd.serve_forever()
 

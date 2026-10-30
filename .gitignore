@@ -5,3 +5,5 @@ vps_engine/data/*.db
 vps_engine/data/vector_packs/*.svg
 workhorse.log
 keepalive_loop.sh
+cloudflared
+tunnel.log

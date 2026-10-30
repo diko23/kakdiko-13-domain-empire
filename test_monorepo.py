@@ -127,11 +127,10 @@ class TestDomainEmpireMonorepo(unittest.TestCase):
             httpd.server_close()
 
     def test_06_vps_workhorse_router_and_farming_engine(self):
-        from vps_engine.empire_workhorse import WorkhorseRequestHandler, init_db
+        from vps_engine.empire_workhorse import ThreadedWorkhorseServer, WorkhorseRequestHandler, init_db
 
         init_db()
-        socketserver.TCPServer.allow_reuse_address = True
-        httpd = socketserver.TCPServer(("127.0.0.1", 0), WorkhorseRequestHandler)
+        httpd = ThreadedWorkhorseServer(("127.0.0.1", 0), WorkhorseRequestHandler)
         port = httpd.server_address[1]
         server_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
         server_thread.start()

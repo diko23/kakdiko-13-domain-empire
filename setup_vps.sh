@@ -85,22 +85,36 @@ chmod +x "$TARGET_DIR/keepalive_loop.sh"
 pkill -f "keepalive_loop.sh" 2>/dev/null || true
 nohup "$TARGET_DIR/keepalive_loop.sh" > /dev/null 2>&1 &
 
-# Auto-launch Web Dashboard inside InstaBox XFCE Desktop if X11 display is active
-for disp in ":0" ":1" ":10"; do
-    if DISPLAY="$disp" xset q &>/dev/null; then
-        nohup env DISPLAY="$disp" xdg-open "http://127.0.0.1:8080/" >/dev/null 2>&1 &
-        break
-    fi
-done
+# Free up CPU/RAM by closing heavy VNC desktop browsers inside the VPS
+pkill -f "chromium" 2>/dev/null || true
+pkill -f "chrome" 2>/dev/null || true
+
+# Launch Cloudflare Quick Tunnel so user can open Dashboard natively on their own laptop (Zero VNC Lag!)
+echo -e "\n${YELLOW}[+] Membuka Jalur Akses Cepat (Cloudflare Tunnel) agar bisa dibuka langsung di Chrome Laptop Anda...${NC}"
+if [ ! -f /usr/local/bin/cloudflared ] && [ ! -f "$TARGET_DIR/cloudflared" ]; then
+    curl -fsSL https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o "$TARGET_DIR/cloudflared"
+    chmod +x "$TARGET_DIR/cloudflared"
+fi
+CF_BIN="$TARGET_DIR/cloudflared"
+[ -f /usr/local/bin/cloudflared ] && CF_BIN="/usr/local/bin/cloudflared"
+
+pkill -f "cloudflared tunnel" 2>/dev/null || true
+nohup "$CF_BIN" tunnel --no-autoupdate --url http://127.0.0.1:8080 > "$TARGET_DIR/tunnel.log" 2>&1 &
+sleep 5
+PUBLIC_TUNNEL_URL=$(grep -oE "https://[a-zA-Z0-9-]+\\.trycloudflare\\.com" "$TARGET_DIR/tunnel.log" | head -n 1 || true)
 
 echo -e "\n${GREEN}====================================================================${NC}"
 echo -e "${GREEN}[SUCCESS] INSTABOX AI WORKHORSE & 13-DOMAIN ENGINE AKTIF!${NC}"
 echo -e "${BLUE}====================================================================${NC}"
-echo -e "PID Daemon   : ${GREEN}${WORKHORSE_PID}${NC}"
-echo -e "Lokasi Kerja : ${YELLOW}${TARGET_DIR}${NC}"
-echo -e "Dashboard UI : ${GREEN}http://localhost:8080/${NC} (Atau buka Port 8080 di InstaBox)"
-echo -e "Keep-Alive   : ${GREEN}http://localhost:8080/keepalive${NC}"
-echo -e "AI Router    : ${GREEN}POST http://localhost:8080/api/v1/router/chat${NC}"
+echo -e "PID Daemon      : ${GREEN}${WORKHORSE_PID}${NC}"
+echo -e "Lokasi Kerja    : ${YELLOW}${TARGET_DIR}${NC}"
+if [ -n "$PUBLIC_TUNNEL_URL" ]; then
+    echo -e "🚀 BUKA DI CHROME LAPTOP LU (ANTI-LEMOT): ${GREEN}${PUBLIC_TUNNEL_URL}${NC}"
+    echo -e "🔗 KEEP-ALIVE URL (UptimeRobot/GitHub)  : ${GREEN}${PUBLIC_TUNNEL_URL}/keepalive${NC}"
+    echo -e "🧠 ENDPOINT AI ROUTER PUBLIK            : ${GREEN}${PUBLIC_TUNNEL_URL}/api/v1/router/chat${NC}"
+else
+    echo -e "Dashboard UI    : ${GREEN}http://localhost:8080/${NC} (Cek log tunnel di $TARGET_DIR/tunnel.log)"
+fi
 echo -e "${BLUE}====================================================================${NC}"
 curl -sSL http://127.0.0.1:8080/api/status | head -n 35
 echo -e "\n${BLUE}====================================================================${NC}"
